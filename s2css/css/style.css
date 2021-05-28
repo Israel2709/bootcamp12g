@@ -1,0 +1,30 @@
+/*Selector universal: selecciona todos los elementos de mi html*/
+
+*{
+    font-family: arial;
+    color:purple;
+}
+
+/*Selector por tagname: selecciona todos los elementos cuyo tagname sea igual al declarado*/
+
+article{
+    background-color:peru;
+}
+
+/*Selector por clase: selecciona todos los elementos que tengan el nombre de la clase en su atributo class*/
+
+.green-button{
+    background-color:green;
+}
+
+.red-button{
+    background-color:darkred;
+}
+
+/*Selector por id: selecciona el único elemento que coincida con el id indicado*/
+
+#main-title{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+

@@ -1,0 +1,109 @@
+.heading{
+    color:tomato
+}
+
+h1{
+    color:peru;
+}
+
+h1{
+    color: purple;
+}
+
+.element-wrapper{
+    width: 50vw;
+    height: 50vh;
+    margin-top: 25vh;
+    margin-left: auto;
+    margin-right: auto;
+    border:1px solid red;
+    position: relative;
+}
+
+.nested-wrapper{
+    width:80%;
+    height:100px;
+    margin-left:auto;
+    margin-top:20px;
+    border:1px solid blue
+}
+
+.element{
+    width: 50px;
+    height:50px;
+    background-color:green;
+}
+
+.circle{
+    width:50px;
+    height:50px;
+    border-radius:100%;
+    background-color: peru;
+    position: absolute;
+}
+
+.center-top{
+    top:20px;
+    left: calc( 50% - 25px );
+}
+
+.center-bottom{
+    bottom:20px;
+    left: calc( 50% - 25px );
+}
+
+.left-center{
+    left:20px;
+    top: calc( 50% - 25px );
+}
+
+.right-center{
+    right:20px;
+    top: calc( 50% - 25px );
+}
+
+.square{
+    width: 50px;
+    height: 50px;
+    background-color: purple;
+    position: absolute;
+    top:calc( 50% - 25px );
+    left: calc( 50% - 25px)
+}
+
+p{
+    background-color: red;
+}
+
+span{
+    background-color: blue;
+}
+
+.contenedor{
+    margin-top:20px;
+    margin-bottom:30px;
+    border: 1px solid purple;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: #333;
+}
+.red-wrapper{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 50%;
+    bottom: 50%;
+    border: 1px solid red;
+}
+
+.cyan-square{
+    width: 150px;
+    height: 150px;
+    background-color: cyan;
+    position: absolute;
+    bottom:100px;
+    right: 200px;
+}

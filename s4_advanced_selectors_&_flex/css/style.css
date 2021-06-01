@@ -1,0 +1,91 @@
+*{
+    font-size:18px;
+}
+
+/* selectores avanzados*/
+
+/*Anidación*/
+
+ul li{
+    color:tomato
+}
+
+ol li{
+    color:peru
+}
+
+#main-list li{
+    color:slategray
+}
+
+.special-text ul{
+    color:springgreen
+}
+
+/*Descendiente directo*/
+.first-element > p{
+    text-transform: uppercase;
+}
+
+/*selector de elementos subsecuentes*/
+#another-list .active ~ li{
+    color:lightgray
+}
+
+/*selector de elemento adyacente*/
+#another-list .active + li{
+    color:darkred
+}
+
+
+/*pseudoclases*/
+
+/*primer hijo*/
+
+#main-list li:first-child{
+    background-color: gray; 
+}
+
+#main-list li:last-child{
+    background-color: peru; 
+}
+
+#main-list li:nth-child(7){
+    background-color:navy
+}
+
+#main-list li:nth-child(odd){
+    font-family: 'Courier New', Courier, monospace;
+    background-color: steelblue;
+}
+
+#main-list li:nth-child(even){
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: pink;
+}
+
+form .form-group input:not(:checked) + p{
+    transition: all 1s ease;
+}
+
+form .form-group input:checked + p{
+   opacity: 1;
+}
+
+
+form{
+    width:50%;
+    border: 1px solid #ccc;
+    border-radius:5px;
+    background-color: slategray;
+    padding: 1rem;
+}
+
+form .form-group label{
+    color:white;
+}
+
+form .form-group p{
+    opacity: 0;
+}
+

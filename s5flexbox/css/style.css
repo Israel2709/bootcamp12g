@@ -1,0 +1,28 @@
+.flex-wrapper{
+    width:80%;
+    height:20vh;
+    border:1px solid red;
+    margin:10px auto;
+    display: flex;
+}
+
+.item{
+    width:50px;
+    height:50px;
+}
+
+.item1{
+    background-color: darkred;
+}
+
+.item2{
+    background-color: peru;
+}
+
+.item3{
+    background-color: slategray;
+}
+
+.justify-content-center{
+    justify-content: center;
+}

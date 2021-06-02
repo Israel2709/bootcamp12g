@@ -89,3 +89,84 @@ form .form-group p{
     opacity: 0;
 }
 
+.shape{
+    transition: all 1s ease;
+}
+
+form input#square:checked ~ .shape{
+    width:100px;
+    height:100px;
+    background-color: peru;
+}
+
+form input#rectangle:checked ~ .shape{
+    width:200px;
+    height:100px;
+    background-color: purple;
+}
+
+form input#circle:checked ~ .shape{
+    width:100px;
+    height:100px;
+    border-radius:100%;
+    background-color: orangered;
+}
+
+@keyframes full-rotation{
+    0%{
+        transform: rotate(22deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+input.toggle-animation:checked + .line{
+    animation: full-rotation 5s infinite linear;
+}
+
+.line{
+    width: 100px;
+    border: 1px solid red;
+    height: 10px;
+    background-color: red;
+    transform: rotate(0deg);
+}
+
+*[class^="element"]{
+    background-color:blue;
+    width:100px;
+    height:100px;
+}
+
+*[class$="1"]{
+    background-color: red;
+}
+
+form .form-group label::before{
+    content:"Iniciar animación";
+    display: block;
+}
+
+form .form-group input[type="checkbox"]:checked ~ label::before{
+    content:"Detener animación"
+}
+
+@keyframes rotateClock {
+    0%{
+        transform:rotate(0deg) translateX(50px);
+    }
+
+    100%{
+        transform: rotate(360deg) translateX(50px);
+    }
+}
+
+.clock-hand{
+    width:100px;
+    height:20px;
+    background-image:linear-gradient(to right, red, orange);
+    animation:rotateClock 2s infinite linear;
+}
+

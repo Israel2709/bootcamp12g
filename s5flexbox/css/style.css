@@ -1,6 +1,6 @@
 .flex-wrapper{
     width:80%;
-    height:20vh;
+    height:40vh;
     border:1px solid red;
     margin:10px auto;
     display: flex;
@@ -25,4 +25,25 @@
 
 .justify-content-center{
     justify-content: center;
+}
+
+.justify-content-around{
+    justify-content: space-around;
+}
+
+.justify-content-between{
+    justify-content: space-between;
+}
+
+.justify-content-evenly{
+    justify-content: space-evenly;
+}
+
+.justify-content-end{
+    justify-content: flex-end;
+}
+
+ul{
+    padding:0;
+    list-style: none;
 }

@@ -1,0 +1,68 @@
+$dark-gray:         #aaa;
+$medium-gray:       #dadada;
+$light-gray:        #acacac;
+$bg-gray:           #ccc;
+$black:             #333;
+
+
+$font-sizes: ("big": 2.5rem, "medium": 1.5rem, "small": 1rem);
+
+$colors:("primary":peru,"secondary":gray,"danger":red,"custom":#8da7c3);
+
+@each $name, $color in $colors{
+    .bg-#{$name}{
+        background-color: $color;
+    }
+}
+
+@each $name, $size in $font-sizes{
+    .font-size-#{$name}{
+        font-size:$size
+    }
+}
+
+@mixin common-style($color,$radi,$thickness) {
+    border: $thickness solid $color;
+    border-radius: $radi;
+    background-color: lighten($color,  10%);
+}
+
+body{
+    padding-top: 70px;
+}
+
+header{
+    position: fixed;
+    height:70px;
+    background-color: $bg-gray;
+    box-shadow: 3px 3px 3px $medium-gray;
+    width: 100%;
+    top: 0;
+    left:0;
+    nav{
+        width: 50%;
+        ul{
+            list-style:none;
+            display: flex;
+            li{
+                border:1px solid $black;
+                &.active{
+                    background-color: $dark-gray;
+                }
+                &:not(.active){
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+main{
+    @include common-style(purple, 1rem , 2px)
+}
+
+footer{
+    @include common-style(peru, 2rem, 5px)
+}
+
+

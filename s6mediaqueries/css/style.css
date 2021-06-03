@@ -1,23 +1,78 @@
-.element{
-    width:100px;
-    height: 100px;
-    background-color: peru;
-    transition: all .5s ease;
+.bg-primary {
+  background-color: peru;
 }
 
-/*Tablet media query*/
-@media only screen and ( min-width:768px ){
-    .element{
-        border-radius: 100%;
-        display: flex;
-        background-color: darkred;
-    }
+.bg-secondary {
+  background-color: gray;
 }
 
-/*Desktop media query*/
-@media only screen and ( min-width:1000px ){
-    .element{
-        border-radius:0;
-        background-color: darkslateblue;
-    }
+.bg-danger {
+  background-color: red;
 }
+
+.bg-custom {
+  background-color: #8da7c3;
+}
+
+.font-size-big {
+  font-size: 2.5rem;
+}
+
+.font-size-medium {
+  font-size: 1.5rem;
+}
+
+.font-size-small {
+  font-size: 1rem;
+}
+
+body {
+  padding-top: 70px;
+}
+
+header {
+  position: fixed;
+  height: 70px;
+  background-color: #ccc;
+  -webkit-box-shadow: 3px 3px 3px #dadada;
+          box-shadow: 3px 3px 3px #dadada;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+header nav {
+  width: 50%;
+}
+
+header nav ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header nav ul li {
+  border: 1px solid #333;
+}
+
+header nav ul li.active {
+  background-color: #aaa;
+}
+
+header nav ul li:not(.active) {
+  color: red;
+}
+
+main {
+  border: 2px solid purple;
+  border-radius: 1rem;
+  background-color: #b300b3;
+}
+
+footer {
+  border: 5px solid peru;
+  border-radius: 2rem;
+  background-color: #d89f67;
+}
+/*# sourceMappingURL=style.css.map */

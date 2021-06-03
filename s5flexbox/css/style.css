@@ -1,49 +1,128 @@
-.flex-wrapper{
-    width:80%;
-    height:40vh;
-    border:1px solid red;
-    margin:10px auto;
-    display: flex;
+*{
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: arial;
+    list-style: none;
 }
 
-.item{
+body{
+    padding-top: 70px;
+}
+
+header{
+    border-bottom: 1px solid #acacac;
+    box-shadow: 3px 3px 3px #dadada;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: fixed;
+    top:0;
+    width: 100%;
+    background-color: white;
+}
+
+header img{
     width:50px;
     height:50px;
 }
 
-.item1{
-    background-color: darkred;
+header nav{
+    width:50%;
 }
 
-.item2{
-    background-color: peru;
-}
-
-.item3{
-    background-color: slategray;
-}
-
-.justify-content-center{
-    justify-content: center;
-}
-
-.justify-content-around{
-    justify-content: space-around;
-}
-
-.justify-content-between{
-    justify-content: space-between;
-}
-
-.justify-content-evenly{
-    justify-content: space-evenly;
-}
-
-.justify-content-end{
+header nav ul{
+    display: flex;
     justify-content: flex-end;
 }
 
-ul{
-    padding:0;
-    list-style: none;
+header nav ul li{
+    padding:.5rem 1rem;
+    border-right:1px solid #333;
+    transition: background-color .5s ease;
+}
+
+header nav ul li:hover{
+    cursor: pointer;
+    background-color: #ddd;
+}
+
+header nav ul li:last-of-type{
+    border: none;
+}
+
+main{
+    width: 70%;
+    margin:1rem auto;
+    display: flex;
+    border: 1px solid #333;
+    border-radius:.5rem;
+    padding: 1rem;
+}
+
+main section{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+main section article{
+    padding: 1rem;
+    border-bottom: 1px solid #333;
+    width: 100%;
+}
+
+main section article:last-of-type{
+    border: none;
+}
+
+main section article img{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+main section article h2{
+    margin-bottom: 1rem;
+}
+
+main aside{
+    align-self: stretch;
+    width: 30%;
+    padding: 1rem;
+    border-left: 1px solid #333;
+}
+
+main aside nav ul{
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+main aside nav ul li{
+    padding: 1rem;
+    border-bottom:1px solid #333;
+    text-align: center;
+    transition: background-color .5s ease;
+}
+
+main aside nav ul li:nth-of-type(odd){
+    background-color: #eee;
+}
+
+main aside nav ul li:nth-of-type(even){
+    background-color: #ccc;
+}
+
+main aside nav ul li:hover{
+    background-color: white;
+    cursor: pointer;
+}
+
+main aside nav ul li:last-of-type{
+    border: none;
 }

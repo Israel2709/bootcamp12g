@@ -1,0 +1,23 @@
+.element{
+    width:100px;
+    height: 100px;
+    background-color: peru;
+    transition: all .5s ease;
+}
+
+/*Tablet media query*/
+@media only screen and ( min-width:768px ){
+    .element{
+        border-radius: 100%;
+        display: flex;
+        background-color: darkred;
+    }
+}
+
+/*Desktop media query*/
+@media only screen and ( min-width:1000px ){
+    .element{
+        border-radius:0;
+        background-color: darkslateblue;
+    }
+}

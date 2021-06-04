@@ -1,0 +1,102 @@
+.font-dm {
+  font-family: 'DM Serif Display', serif;
+}
+
+.font-karla {
+  font-family: 'Karla', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  padding: 70px;
+  font-family: 'Karla', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Serif Display', serif;
+}
+
+header {
+  position: fixed;
+  height: 70px;
+  background-color: white;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid red;
+  top: 0;
+  left: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 1rem;
+}
+
+header .logo {
+  width: 120px;
+}
+
+header nav {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav button.hamburger {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  position: relative;
+}
+
+header nav button.hamburger:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 4px;
+  top: 7px;
+  height: 2px;
+  background-color: black;
+  width: 20px;
+  -webkit-box-shadow: 0 5px 0 0 black, 0 10px 0 0 black;
+          box-shadow: 0 5px 0 0 black, 0 10px 0 0 black;
+}
+
+header nav ul {
+  display: none;
+  list-style: none;
+}
+
+header nav ul li {
+  text-transform: uppercase;
+  padding: 0 .5rem;
+}
+
+@media only screen and (min-width: 1000px) {
+  header nav button.hamburger {
+    display: none;
+  }
+  header nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+/*# sourceMappingURL=style.css.map */

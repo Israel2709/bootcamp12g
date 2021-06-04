@@ -14,12 +14,38 @@
 }
 
 body {
-  padding: 70px;
+  padding-top: 70px;
   font-family: 'Karla', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'DM Serif Display', serif;
+}
+
+.button {
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.button.primary {
+  background: white;
+  border: 1px solid black;
+}
+
+.button.outline {
+  background: none;
+  border: 1px solid white;
+  color: white;
 }
 
 header {
@@ -33,13 +59,13 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  border-bottom: 1px solid red;
   top: 0;
   left: 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   padding: 0 1rem;
+  z-index: 9999;
 }
 
 header .logo {
@@ -87,6 +113,107 @@ header nav ul {
 header nav ul li {
   text-transform: uppercase;
   padding: 0 .5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hero {
+  background-image: url("../img/bg-pattern-intro-left-mobile.svg"), url("../img/bg-pattern-intro-right-mobile.svg");
+  background-position: left top, bottom right;
+  background-repeat: no-repeat, no-repeat;
+  background-color: #2d2640;
+  height: calc( 100vh - 70px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.hero .hero-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+  color: white;
+  height: 50%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hero .hero-content h1, .hero .hero-content p {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 1rem;
+}
+
+.about .card-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about .card-wrapper .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+}
+
+.about .card-wrapper .card * {
+  margin-bottom: 1rem;
+}
+
+.about .card-wrapper .card img {
+  width: 75px;
+}
+
+.about .card-wrapper .card p {
+  text-align: center;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -97,6 +224,57 @@ header nav ul li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+  .hero {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .hero .hero-content, .hero .hero-img {
+    width: 40%;
+    padding: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+    height: unset;
+  }
+  .hero .hero-img {
+    position: relative;
+  }
+  .hero .hero-img img {
+    position: absolute;
+    width: 80%;
+    bottom: -100px;
+  }
+  .about {
+    width: 80%;
+    margin: 30vh auto 0 auto;
+  }
+  .about .card-wrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .about .card-wrapper .card {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .about .card-wrapper .card p {
+    text-align: left;
   }
 }
 /*# sourceMappingURL=style.css.map */

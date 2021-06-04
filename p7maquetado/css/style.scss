@@ -20,12 +20,31 @@ $very-light-gray:       hsl(0, 0%, 98%);
 }
 
 body{
-    padding:70px;
+    padding-top:70px;
     font-family: 'Karla', sans-serif;
 }
 
 h1,h2,h3,h4,h5,h6{
     font-family: 'DM Serif Display', serif;
+}
+
+
+.button{
+    padding:1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold; 
+    &.primary{
+        background: white;
+        border: 1px solid black;
+    }
+    &.outline{
+        background: none;
+        border: 1px solid white;
+        color: white;
+    }
 }
 
 header{
@@ -35,11 +54,11 @@ header{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid red;
     top: 0;
     left: 0;
     align-items: center;
     padding:0 1rem;
+    z-index:9999;
     .logo{
         width: 120px;
     }
@@ -71,6 +90,59 @@ header{
             li{
                 text-transform: uppercase;
                 padding:0 .5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
+
+.hero{
+    background-image: url("../img/bg-pattern-intro-left-mobile.svg"), url("../img/bg-pattern-intro-right-mobile.svg");
+    background-position: left top, bottom right;
+    background-repeat: no-repeat, no-repeat;
+    background-color:$dark-violet;
+    height: calc( 100vh - 70px );
+    display: flex;
+    flex-direction: column;
+    .hero-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        color: white;
+        height: 50%;
+        justify-content: center;
+        h1,p{
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+.about{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1rem;
+    .card-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            *{
+                margin-bottom: 1rem;
+            }
+            img{
+                width: 75px;
+            }
+            p{
+                text-align: center;
             }
         }
     }
@@ -84,6 +156,40 @@ header{
             }
             ul{
                 display: flex;
+            }
+        }
+    }
+    .hero{
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        .hero-content, .hero-img{
+            width: 40%;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            align-self: stretch;
+            height: unset;
+        }
+        .hero-img{
+            position: relative;
+            img{
+                position: absolute;
+                width: 80%;
+                bottom: -100px;
+            }
+        }
+    }
+    .about{
+        width: 80%;
+        margin:30vh auto 0 auto;
+        .card-wrapper{
+            flex-direction: row;
+            .card{
+                align-items:flex-start;
+                p{
+                    text-align: left;
+                }
             }
         }
     }

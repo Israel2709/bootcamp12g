@@ -1,4 +1,5 @@
-div[class^="col"] {
-  border: 1px solid red;
+.card-title {
+  color: peru;
+  font-size: 2rem;
 }
 /*# sourceMappingURL=style.css.map */

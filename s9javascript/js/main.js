@@ -79,3 +79,17 @@ var string1 = "a"
 var string2 = "b"
 
 console.log(   string1 > string2 )
+/*true ( comparación lexicográfica )*/
+
+/*ejercicio 1:
+pedir 2 números al usuario y mostrar en consola el resultado de aplicar todas las operaciones aritméticas entre esos dos números*/
+
+/*
+    ejercicio 2:
+    pedir al usuario dos números y escribir en consola si el primer número es mayor que el segundo
+*/
+
+/*
+    ejercicio 3:
+    pedir al usuario dos letras, y determinar si la primera apare antes o después en el alfabeto
+    */

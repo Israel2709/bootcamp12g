@@ -1,0 +1,57 @@
+.custom-bg{
+    background-color: black;
+    height: 100vh;
+    
+}
+
+#checkbox{
+    display: none;
+}
+
+#checkbox:checked ~ div.bg-dark{
+    display: none;
+}
+
+.contenedor-fluido{
+    display: flex;
+    justify-content: center;
+    background-image:url("https://picsum.photos/id/237/1366");
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bg-2{
+    background-image:url("https://picsum.photos/id/238/1366");
+}
+
+.contenedor-estrecho{
+    width:80%;
+    background-color:rgba(0,0,0,.5);
+    padding:0 1rem;
+}
+
+.bg-peru{
+    background-color: peru;
+}
+
+$colors: ("main": peru, "second": slategray, "custom": purple);
+
+@each $name, $color in $colors{
+    .bg-#{$name}{
+        background-color:$color
+    }
+    .btn-#{$name}{
+        background-color:$color;
+        &:hover{
+            opacity: .9;
+        }
+    }
+}
+
+.btn{
+    background-color: white;
+}
+

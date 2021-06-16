@@ -1,0 +1,64 @@
+/*Moderate violet: hsl(263, 55%, 52%)
+Very dark grayish blue: hsl(217, 19%, 35%)
+Very dark blackish blue: hsl(219, 29%, 14%)
+White: hsl(0, 0%, 100%)
+
+### Neutral
+
+Light gray: hsl(0, 0%, 81%)
+Light grayish blue: hsl(210, 46%, 95%)*/
+.text-light-gray {
+  color: #cfcfcf;
+}
+
+.text-light-blue {
+  color: #ecf2f8;
+}
+
+.bg-violet {
+  background-color: #7541c8;
+}
+
+.bg-dark-grayish-blue {
+  background-color: #48556a;
+}
+
+.bg-dark-blackish-blue {
+  background-color: #19212e;
+}
+
+.quote-bg {
+  background-image: url("../img/bg-pattern-quotation.svg");
+  background-position-x: calc(100% - 1rem);
+  background-position-y: top;
+  background-repeat: no-repeat;
+}
+
+.card .card-body .card-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card .card-body .card-title img {
+  border: 2px solid gray;
+  border-radius: 100%;
+  margin-right: 1rem;
+}
+
+.card .card-body .card-title h5 {
+  font-size: 1rem;
+}
+
+.card .card-body .card-title p {
+  font-size: .875rem;
+  opacity: .5;
+}
+
+.card .card-body .card-title h5, .card .card-body .card-title p {
+  margin-bottom: 0;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,87 @@
+.custom-bg {
+  background-color: black;
+  height: 100vh;
+}
+
+#checkbox {
+  display: none;
+}
+
+#checkbox:checked ~ div.bg-dark {
+  display: none;
+}
+
+.contenedor-fluido {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-image: url("https://picsum.photos/id/237/1366");
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bg-2 {
+  background-image: url("https://picsum.photos/id/238/1366");
+}
+
+.contenedor-estrecho {
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0 1rem;
+}
+
+.bg-peru {
+  background-color: peru;
+}
+
+.bg-main {
+  background-color: peru;
+}
+
+.btn-main {
+  background-color: peru;
+}
+
+.btn-main:hover {
+  opacity: .9;
+}
+
+.bg-second {
+  background-color: slategray;
+}
+
+.btn-second {
+  background-color: slategray;
+}
+
+.btn-second:hover {
+  opacity: .9;
+}
+
+.bg-custom {
+  background-color: purple;
+}
+
+.btn-custom {
+  background-color: purple;
+}
+
+.btn-custom:hover {
+  opacity: .9;
+}
+
+.btn {
+  background-color: white;
+}
+/*# sourceMappingURL=style.css.map */

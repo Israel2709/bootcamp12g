@@ -1,0 +1,67 @@
+/*Moderate violet: hsl(263, 55%, 52%)
+Very dark grayish blue: hsl(217, 19%, 35%)
+Very dark blackish blue: hsl(219, 29%, 14%)
+White: hsl(0, 0%, 100%)
+
+### Neutral
+
+Light gray: hsl(0, 0%, 81%)
+Light grayish blue: hsl(210, 46%, 95%)*/
+
+$violet: hsl(263, 55%, 52%);
+$dark-grayish-blue: hsl(217, 19%, 35%);
+$dark-blackish-blue:hsl(219, 29%, 14%);
+$light-gray:hsl(0, 0%, 81%);
+$light-blue:hsl(210, 46%, 95%);
+
+.text-{
+    &light-gray{
+        color:$light-gray
+    }
+    &light-blue{
+        color:$light-blue
+    }
+}
+
+.bg-{
+    &violet{
+        background-color:$violet
+    }
+    &dark-grayish-blue{
+        background-color:$dark-grayish-blue
+    }
+    &dark-blackish-blue{
+        background-color:$dark-blackish-blue
+    }
+}
+
+.quote-bg{
+    background-image: url('../img/bg-pattern-quotation.svg');
+    background-position-x: calc(100% - 1rem);
+    background-position-y: top;
+    background-repeat: no-repeat;
+}
+
+.card{
+    .card-body{
+        .card-title{
+            display: flex;
+            align-items: center;
+            img{
+                border: 2px solid gray;
+                border-radius: 100%;
+                margin-right: 1rem;
+            }
+            h5{
+                font-size: 1rem;
+            }
+            p{
+                font-size:.875rem;
+                opacity: .5;
+            }
+            h5,p{
+                margin-bottom:0;
+            }
+        }
+    }
+}

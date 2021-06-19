@@ -15,34 +15,30 @@
 
 //var n = parseInt( prompt("Qué longitud debe tener el string? "))
 
+/*
 function createRandomString ( charactersQty ){
     var result = ""
-    /* rango: 48 - 90*/
-    //evaluateCharacter( result )  
     for( i = 0; i < charactersQty; i++ ){
-        result = evaluateCharacter( result ) //false
+        result += evaluateCharacter( result )
     }
     console.log('result ', result)
     console.log('length ', result.length )
 }
-
+*/
 
 
 
 function evaluateCharacter( completeString ){
-    //debugger
-
-    console.log('completeString', completeString )
     var characterCode = Math.floor( Math.random() * (91 - 48) + 48 )
     var character = String.fromCharCode( characterCode )
-    if( !completeString.includes(character) ){
-        completeString += character
-        
-    } else {
-        console.log( "repeated" )
-        evaluateCharacter( completeString )
-        return
+    return !completeString.includes(character) ? character : evaluateCharacter( completeString )
+}
+
+function createRandomString ( charactersQty ){
+    var result = ""
+    while( result.length < charactersQty ){
+        result += evaluateCharacter(result)
     }
-   // console.log( completeString )
-   return completeString
+    console.log('result ', result)
+    console.log('length ', result.length )
 }

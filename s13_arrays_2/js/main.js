@@ -134,3 +134,30 @@ let namesArray = [
   let person = { name:firstname, lastName, age }
   
   console.log( person )
+
+
+  let dataArray = [
+      [
+          "Israel",
+          "Salinas Martínez"
+      ],
+      [
+          "David",
+          "Cermeño Moranchel"
+      ],
+      [
+          "Charles",
+          "Silva"
+      ],
+      [
+          "Michael",
+          "Villalba Sotelo"
+      ]
+  ]
+
+  /* mentorsArray = [
+      {
+          name:"Israel",
+          lastName:"salinas"
+      }...{...}
+  ]*/

@@ -214,6 +214,30 @@ let songsData = [
       likes: 12000,
       reproductions: 95000,
     }
+  }, {
+    name: "Nothing Else Matters",
+    band: "Metallica",
+    releaseYear: "1992",
+    statistics: {
+      likes: 128000,
+      reproductions: 915000,
+    }
+  }, {
+    name: "Daze",
+    band: "Poets of the Fall",
+    releaseYear: "2014",
+    statistics: {
+      likes: 3548413,
+      reproductions: 87095138,
+    }
+  }, {
+    name: "The Sweet Scape",
+    band: "Poets of the fall",
+    releaseYear: "2018",
+    statistics: {
+      likes: 26268856,
+      reproductions: 2424568,
+    }
   }
 ]
 

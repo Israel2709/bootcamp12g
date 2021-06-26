@@ -161,3 +161,41 @@ item: {
 }*/
 
 console.log( getMentorNamesArray( mentorsArray ) )
+
+
+  /*
+    crear un nuevo array con las inciales de cada mentor
+    [
+      "I. S. M."
+    ]
+  */
+
+    /* crear un nuevo array con los mentores cuyo nombre comience con <vocal></vocal>
+
+  */
+
+const getMentorsInitials = dataArray => {
+  let mentorsInitials = dataArray.map( item => {
+    let name = item.name
+    let nameArray = name.split(" ")
+    let initialsString = '' 
+    nameArray.forEach( word => {
+      initialsString += `${word.charAt(0).toUpperCase()}. `
+    })
+    return initialsString
+  })
+  return mentorsInitials
+}
+
+console.log( getMentorsInitials(mentorsArray) )
+
+const getMentorsWithVowel = dataArray => {
+  let result = dataArray.filter( item => {
+    let name = item.name
+    let firstLetter = name.charAt(0)
+    return firstLetter.match(/[aeiou]/i)
+  })
+  return result
+}
+
+console.log( getMentorsWithVowel( mentorsArray) )

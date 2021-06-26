@@ -96,6 +96,96 @@ var mentorsArray = [
     }
 ]
 
+const getMentorAverage = scoresArray => {
+
+  let total = scoresArray.reduce( (accum, current ) => {
+    return accum + current.score
+  },0) 
+
+  let average = total / scoresArray.length
+
+  return average
+}
+
+const getMentorsWithAverage = dataArray => {
+  let mentorsLabelArray = dataArray.map( item => {
+    let scores = item.scores
+    let average = getMentorAverage( scores )
+    return `El promedio de ${item.name} es de ${average}`
+  })
+  return mentorsLabelArray
+}
+
+//console.log( getMentorsWithAverage( mentorsArray ))
+
+
+
+
+
+
+//console.log( getMentorAverage( mentorsArray ))
+
+
+let uglyArray = [
+  [
+    "Israel","Salinas Martínez"
+  ],
+  [
+    "David","Cermeño Moranchel"
+  ],
+  [
+    "Charles","Silva"
+  ],
+  [
+    "Michael","Villalba Sotelo"
+  ],
+  [
+    "Alejandra","Padilla"
+  ]
+
+]
+
+/*
+[
+  {
+    name:"Israel",
+    lastName:"Salinas Martinez"
+  }
+]
+*/
+
+let createNewArray = oldArray => {
+  let newArray = oldArray.reduce( ( accum, current ) => {
+    debugger
+      let [ name, lastName ] = current
+      let personObject = { name, lastName }
+      return personObject.name.charAt(0).match(/[aeiou]/i) ? [...accum, personObject] : accum
+  },[])
+  return newArray
+}
+
+console.log( createNewArray( uglyArray ))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const createLabelsArray = dataArray => {
   let labelsArray = dataArray.map( item => {
       let { name } = item

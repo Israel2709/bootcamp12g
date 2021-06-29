@@ -1,0 +1,74 @@
+$dark-main-bg: #ddd;
+$kodemia-main-text: cyan;
+
+
+:root{
+    --main-background-color: #{$dark-main-bg};
+    --main-text-color:#333;
+    --main-shadow-color:#acacac;
+    --secondary-background-color:#666;
+    --secondary-text-color:#ddd;
+}
+
+.custom-theme{
+    --main-background-color:#333;
+    --main-text-color:#dadada;
+    --main-shadow-color:#ccc;
+    --secondary-background-color:#ddd;
+    --secondary-text-color:#333;
+}
+
+.kodemia-theme{
+    --main-background-color:#111;
+    --main-text-color:#{$kodemia-main-text};
+    --main-shadow-color:#ccc;
+    --secondary-background-color:#555;
+    --secondary-text-color:magenta;
+}
+
+body{
+    background-color:var(--main-background-color);
+}
+
+body *{
+    transition:all 1s ease;
+}
+
+.card {
+    background-color:var(--secondary-background-color);
+    
+    h1, p{
+        color:var(--main-text-color);
+    }
+}
+
+.switch-wrapper{
+    input[type='checkbox']{
+        & ~ label{
+            width: 100px;
+            height: 50px;
+            border-radius:50px;
+            border: 1px solid red;
+            position: relative;
+            &:after{
+                width:45px;
+                height: 45px;
+                border-radius:100%;
+                background-color:white;
+                box-shadow:3px 3px 3px #acacac;
+                position: absolute;
+                left: 0;
+                top:0;
+                content:"";
+                transition: left .5s ease;
+            }
+        }
+        &:checked{
+            & ~ label{
+                &:after{
+                    left: calc(100% - 45px)
+                }
+            }
+        }
+    }
+}

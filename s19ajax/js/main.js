@@ -69,13 +69,49 @@ saveBtn.addEventListener("click", () => {
     fields.forEach(field => {
         let property = field.name
         let value = field.value
-        console.log(property, value)
         personObject = { ...personObject, [property]: value }
+        field.value = ''
     })
-    savePerson(personObject.nombre, personObject.apellidos)
+
+
+    savePerson(personObject.nombre, personObject.apellido)
 })
 
 
+const updatePerson = event => {
+    let personIndex = event.target.dataset.personIndex
+
+    let personObject = {}
+    let fields = document.querySelectorAll("#person-form input")
+    //console.log( fields )
+    fields.forEach(field => {
+        let property = field.name
+        let value = field.value
+        if (field.value !== ''){
+            personObject = { ...personObject, [property]: value }
+        }
+        field.value = ''
+    })
+    console.log({personObject})
+    const personJson = JSON.stringify(personObject)
+
+    // Creando el objeto
+    var xhttp = new XMLHttpRequest();
+    // Configurando qué va a pasar cuando recibamos respuesta
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            const respuesta = xhttp.responseText;
+            getPersons()
+        }
+    };
+    // Configurar el verbo, la dirección
+    const endpoint = `https://apikoder-b2ce0-default-rtdb.firebaseio.com/angel1/${personIndex}.json`
+    
+    xhttp.open("PUT", endpoint, true);
+
+    // Enviar la solicitud
+    xhttp.send(personJson);
+}
 
 
 const deletePerson = event => {
@@ -115,18 +151,29 @@ const printTable = dataToPrint => {
         //<td></td>
         let buttonTd = document.createElement("td")
 
+        let indexText = document.createTextNode(index+1)
         let nameText = document.createTextNode(nombre)
         let lastnameText = document.createTextNode(apellidos)
-        let indexText = document.createTextNode(index+1)
+
+        // Botón para borrar
         let deleteButton = document.createElement("button")
-        deleteButton.classList.add("btn", "btn-warning")
+        deleteButton.classList.add("btn", "btn-warning", "mx-2")
         deleteButton.dataset.personIndex = id
         deleteButton.addEventListener("click", deletePerson )
-
         let buttonText = document.createTextNode("Borrar")
         deleteButton.appendChild(buttonText)
 
+        // Botón para actualizar
+        let updateButton = document.createElement("button")
+        updateButton.classList.add("btn", "btn-primary", "mx-2")
+        updateButton.dataset.personIndex = id
+        updateButton.addEventListener("click", updatePerson )
+        let updateButtonText = document.createTextNode("Update")
+        updateButton.appendChild(updateButtonText)
+
+
         buttonTd.appendChild(deleteButton)
+        buttonTd.appendChild(updateButton)
 
         indexTd.appendChild(indexText)
         nameTd.appendChild(nameText)

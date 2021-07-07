@@ -107,7 +107,7 @@ const updatePerson = event => {
     // Configurar el verbo, la dirección
     const endpoint = `https://apikoder-b2ce0-default-rtdb.firebaseio.com/angel1/${personIndex}.json`
     
-    xhttp.open("PUT", endpoint, true);
+    xhttp.open("PATCH", endpoint, true);
 
     // Enviar la solicitud
     xhttp.send(personJson);

@@ -15,8 +15,9 @@ const savePerson = (nombre, apellido) => {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             const respuesta = xhttp.responseText;
-            console.log({respuesta})
+            getPersons()
         }
+
     };
 
     // Configurar el verbo, la dirección
@@ -26,10 +27,38 @@ const savePerson = (nombre, apellido) => {
     xhttp.send(personJson);
 }
 
-// savePerson('Angel', 'Resendiz')
 
+const getPersons = () => {
 
+    // Creando el objeto
+    var xhttp = new XMLHttpRequest();
 
+    // Configurando qué va a pasar cuando recibamos respuesta
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            //console.log(xhttp.responseText)
+            const respuesta = JSON.parse(xhttp.responseText);
+            //console.log({respuesta}) //  {respuesta: respuesta}
+            let mentores = []
+            for ( mentorKey in respuesta){
+                let newMentor = {
+                    id: mentorKey, // key
+                    nombre: respuesta[mentorKey].nombre,
+                    apellidos:  respuesta[mentorKey].apellido
+                }
+                mentores.push(newMentor)
+            }
+            printTable( mentores )
+        }
+    };
+
+    // Configurar el verbo, la dirección
+    xhttp.open("GET", endpoint, true);
+
+    // Enviar la solicitud
+    xhttp.send();
+}
+getPersons()
 
 let saveBtn = document.getElementById("save-person")
 
@@ -43,22 +72,38 @@ saveBtn.addEventListener("click", () => {
         console.log(property, value)
         personObject = { ...personObject, [property]: value }
     })
-    console.log(personObject)
-    personArray.push(personObject)
-    console.log(personArray)
-    printTable( personArray )
+    savePerson(personObject.nombre, personObject.apellidos)
 })
+
+
+
 
 const deletePerson = event => {
     let personIndex = event.target.dataset.personIndex
-    personArray.splice(personIndex,1)
-    printTable( personArray )
+
+    // Creando el objeto
+    var xhttp = new XMLHttpRequest();
+
+    // Configurando qué va a pasar cuando recibamos respuesta
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            const respuesta = xhttp.responseText;
+            getPersons()
+        }
+    };
+    // Configurar el verbo, la dirección
+    const endpoint = `https://apikoder-b2ce0-default-rtdb.firebaseio.com/angel1/${personIndex}.json`
+    
+    xhttp.open("DELETE", endpoint, true);
+
+    // Enviar la solicitud
+    xhttp.send();
 }
 
 const printTable = dataToPrint => {
     document.getElementById("person-table").innerHTML = ""
-    dataToPrint.forEach((item,index) => {
-        let { nombre, apellidos } = item
+    dataToPrint.forEach((item, index) => {
+        let { nombre, apellidos, id } = item
 
         let personRow = document.createElement("tr")
         //<tr></tr>
@@ -72,10 +117,10 @@ const printTable = dataToPrint => {
 
         let nameText = document.createTextNode(nombre)
         let lastnameText = document.createTextNode(apellidos)
-        let indexText = document.createTextNode(index + 1)
+        let indexText = document.createTextNode(index+1)
         let deleteButton = document.createElement("button")
         deleteButton.classList.add("btn", "btn-warning")
-        deleteButton.dataset.personIndex = index
+        deleteButton.dataset.personIndex = id
         deleteButton.addEventListener("click", deletePerson )
 
         let buttonText = document.createTextNode("Borrar")

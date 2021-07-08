@@ -12,7 +12,7 @@ const getComments = () => {
     return response 
 }
 
-let commentsCollection = getComments()
+/*let commentsCollection = getComments()*/
 
 
 document.getElementById("create-post").addEventListener('click', () => {
@@ -66,10 +66,19 @@ const getPosts = () => {
 
 
 const printPosts = dataToPrint => {
-    let postsContent = Object.keys(dataToPrint).reduce( (accum, current) => {
-        let postData = dataToPrint[current]
-        let postComments = Object.values( commentsCollection ).filter( comment =>  comment.postKey === current)
-        console.log( postComments )
+    let comments = getComments()
+    let postsContent = Object.keys(dataToPrint).reduce( (accum, key) => {
+        let postData = dataToPrint[key]
+
+        let postComments = Object.values( comments ).filter( comment =>  comment.postKey === key)
+        //console.log( postComments )
+
+        let commentsHtml = postComments.reduce( (accum, comment) => {
+            return accum + `<li class="list-group-item">${comment.content}</li>`
+        }, "")
+
+        console.log( commentsHtml )
+
         let { title, cover, content, author, category, creationDate } = postData
         
         let cardHtml = `
@@ -85,18 +94,16 @@ const printPosts = dataToPrint => {
                                 <p class="card-text">${content}</p>
                                 <p class="card-text"> <small class="text-muted">@${author}</small></p>
                                 <p class="card-text d-flex justify-content-end"> <small class="text-muted">${creationDate}</small></p>
-                                <button class="btn btn-dark" data-post-key=${current}>Ver post</button>
+                                <button class="btn btn-dark" data-post-key=${key}>Ver post</button>
                             </div>
                         </div>
                         <div class="col-12">
                             <form class="comment-form">
                                 <div class="form-group d-flex">
                                     <input class="form-control">
-                                    <button class="btn btn-secondary submit-comment" data-post-key=${current}>Comentar</button>
+                                    <button class="btn btn-secondary submit-comment" data-post-key=${key}>Comentar</button>
                                 </div>
-                                <ul class="list-group">
-                                    <li class="list-group-item">Comentario 1</li>
-                                </ul>
+                                <ul class="list-group">${commentsHtml}</ul>
                             </form>
                         </div>
                     </div>

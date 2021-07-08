@@ -12,38 +12,53 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <form id="person-form" action="" class="bg-dark text-white mt-3 border rounded p-3">
-                    <div class="form-group">
-                        <label for="">Nombre</label>
-                        <input class="form-control" type="text" name="nombre" value="Israel">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Apellido</label>
-                        <input class="form-control" type="text" name="apellidos" value="Salinas Martínez">
-                    </div>
-                    <button type="button" class="btn btn-success ml-auto" id="save-person">Guardar</button>
-                </form>
-            </div>
-            <div class="col-12 col-md-6">
-                <table class="table table-dark mt-3">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellidos</th>
-                        <th scope="col">&nbsp;</th>
-                      </tr>
-                    </thead>
-                    <tbody id="person-table">
-                      
-                    </tbody>
-                  </table>
-            </div>
-        </div>
-    </div>
+    <table>
+        <tr>
+            <td>
+                <table id="nested-table">
+                    <tr>
+                        <td>
+                            
+                        </td>
+                        <td>Vitae, aliquam? Vitae, aliquam?Vitae, aliquam?Vitae, aliquam?Vitae, aliquam?</td>
+                        <td>Perferendis, vero.</td>
+                        <td>Perferendis, vero.</td>
+                        <td>Perferendis, vero.</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Itaque, ex.</td>
+                        <td>Delectus, neque.</td>
+                        <td>Perferendis, vero.</td>
+                        <td>Perferendis, vero.</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Necessitatibus, eveniet.</td>
+                        <td>Unde, cum.</td>
+                        <td>Perferendis, vero.</td>
+                        <td>Perferendis, vero.</td>
+                    </tr>
+                </table>
+            </td>
+            <td>Nisi, quam!</td>
+        </tr>
+        <tr>
+            <td>Lorem, ipsum.</td>
+            <td>Adipisci, odit?</td>
+        </tr>
+    </table>
+
+    <table id="my-table">
+        <tr>
+            <td>Lorem, ipsum.</td>
+            <td>Nisi, quam!</td>
+        </tr>
+        <tr>
+            <td>Lorem, ipsum.</td>
+            <td>Adipisci, odit?</td>
+        </tr>
+    </table>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

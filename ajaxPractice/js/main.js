@@ -1,3 +1,20 @@
+const getComments = () => {
+    let response;
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            response  = JSON.parse( xhttp.responseText );
+            console.log( response )
+        }
+    };
+    xhttp.open("GET", "https://blog-12g-default-rtdb.firebaseio.com/comments.json", false);
+    xhttp.send();
+    return response 
+}
+
+let commentsCollection = getComments()
+
+
 document.getElementById("create-post").addEventListener('click', () => {
     let date = new Date()
     let dd = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
@@ -44,15 +61,17 @@ const getPosts = () => {
     xhttp.send();
 }
 
+ 
+
 
 
 const printPosts = dataToPrint => {
-    console.log( dataToPrint )
-    console.log( Object.keys( dataToPrint ))
-    console.log( Object.values( dataToPrint ))
     let postsContent = Object.keys(dataToPrint).reduce( (accum, current) => {
         let postData = dataToPrint[current]
+        let postComments = Object.values( commentsCollection ).filter( comment =>  comment.postKey === current)
+        console.log( postComments )
         let { title, cover, content, author, category, creationDate } = postData
+        
         let cardHtml = `
             <div class="col-12 col-md-6">
                 <div class="card mb-3">
@@ -69,6 +88,17 @@ const printPosts = dataToPrint => {
                                 <button class="btn btn-dark" data-post-key=${current}>Ver post</button>
                             </div>
                         </div>
+                        <div class="col-12">
+                            <form class="comment-form">
+                                <div class="form-group d-flex">
+                                    <input class="form-control">
+                                    <button class="btn btn-secondary submit-comment" data-post-key=${current}>Comentar</button>
+                                </div>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Comentario 1</li>
+                                </ul>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,7 +106,49 @@ const printPosts = dataToPrint => {
         return accum + cardHtml
     },"")
     console.log( postsContent )
+
+
     document.getElementById("posts-wrapper").innerHTML = postsContent
+
+
+    document.querySelectorAll(".submit-comment").forEach( button => {
+        button.addEventListener("click", (event) => {
+            event.preventDefault()
+            let postKey = event.target.dataset.postKey
+            let content = event.target.previousElementSibling.value
+            console.log( content )
+            let commentObject = { content, author:"Iván Díaz", postKey}
+            saveComment( commentObject, postKey )
+        })
+    })
 }
+
+const saveComment = (commentData, postKey) => {
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            let response = xhttp.responseText;
+            let commentId = JSON.parse(response)
+            //console.log( response )
+        }
+    };
+    xhttp.open("POST", "https://blog-12g-default-rtdb.firebaseio.com/comments.json", true);
+    xhttp.send( JSON.stringify(commentData) );
+}
+
+/*const attachComment = ( commentId,postId ) => {
+    console.log( commentId )
+    
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            let response = xhttp.responseText;
+            
+            //console.log( response )
+        }
+    };
+    xhttp.open("PATCH", `https://blog-12g-default-rtdb.firebaseio.com/posts/${postId}/comments.json`, true);
+    xhttp.send( JSON.stringify([commentId]) );
+}*/
 
 getPosts()

@@ -1,0 +1,11 @@
+.number-card{
+    cursor: pointer;
+    transition: all 1s ease;
+    .active{
+        background-color:peru;
+        color: white;
+    }
+    h1{
+        pointer-events: none;  
+    }
+}

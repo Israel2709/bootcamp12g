@@ -87,7 +87,7 @@ const printAllPets = () => {
         let petHtml = `
         <div class="col-12 col-md-6 mb-4">
         <div class="card pet-card">
-            <img src=${picture} class="card-img-top" alt="...">
+        <a href = "vista.html?mascota=${pet}" target = "_blank" > <img src=${picture} class="card-img-top" alt="..."> </a>
             <div class="card-body">
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">Especie: ${specie}</p>

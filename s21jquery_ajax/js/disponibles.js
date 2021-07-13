@@ -77,7 +77,7 @@ const printAllAvailablePets = () => {
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">Especie: ${specie}</p>
                 <p class="card-text">Edad: ${age}</p>
-                <a href="#" class="btn btn-primary" data-pet-key=${pet}>Adoptame</a>
+                <a href="#" class="btn btn-primary adoptar" data-pet-key=${pet} >Adoptame</a>
             </div>
             </div>
             </div>
@@ -87,7 +87,9 @@ const printAllAvailablePets = () => {
                 $(".pets-wrapper").append(petHtml)
             }
         }
-
+        $(".adoptar").click(function(){
+            window.location.href = `adoptForm.html?key=${$(this).data('pet-key')}`;
+        })
     }
 }
 

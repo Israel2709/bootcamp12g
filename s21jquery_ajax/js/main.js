@@ -71,8 +71,8 @@ const printAllPets = () => {
         let { name, specie, age, picture } = allPets[pet]
 
         let petHtml = `
-        <div class="col-12 col-md-6">
-        <div class="card" style="width: 18rem;">
+        <div class="col-12 col-md-6 mb-4">
+        <div class="card pet-card">
             <img src=${picture} class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${name}</h5>
@@ -87,3 +87,5 @@ const printAllPets = () => {
     }
 }
 
+//Imprimimos todas las mascotas desde el principio
+printAllPets()

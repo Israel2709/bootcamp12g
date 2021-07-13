@@ -1,15 +1,7 @@
-.number-card {
-  cursor: pointer;
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
-}
-
-.number-card .active {
-  background-color: peru;
-  color: white;
-}
-
-.number-card h1 {
-  pointer-events: none;
+.pet-card img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 200px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -16,6 +16,21 @@ const savePet = petData => {
         async:false
     })
 }
+const patchPet = (petId, petData) => {
+    $.ajax({
+        method:"PATCH",
+        url:`${BASE_URL}/pets/${petId}.json`,
+        data:JSON.stringify( petData ),
+        success: response => {
+            console.log( response )
+        },
+        error: error => {
+            console.log( "hay un error ")
+            console.log( error )
+        },
+        async:false
+    })
+}
 
 const getAllPets = () => {
     let result
@@ -79,12 +94,15 @@ const printAllPets = () => {
                 <p class="card-text">Especie: ${specie}</p>
                 <p class="card-text">Edad: ${age}</p>
                 <a href="#" class="btn btn-primary" data-pet-key=${pet}>Go somewhere</a>
+                <a href="adoptForm.html?adoptKey=${pet}" class="btn btn-success adopt" data-pet-key=${pet}>Adopt</a>
             </div>
             </div>
             </div>
         `
         $(".pets-wrapper").append(petHtml)
+        
     }
+
 }
 
 //Imprimimos todas las mascotas desde el principio

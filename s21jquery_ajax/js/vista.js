@@ -43,3 +43,7 @@ const printSelected = (someId) => {
 }
 
 printSelected(param)
+
+$("#cerrar").click( () =>{
+  window.close()
+})

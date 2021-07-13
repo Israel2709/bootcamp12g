@@ -83,8 +83,9 @@ const printAllPets = () => {
     $(".pets-wrapper").empty()
     let allPets = getAllPets()
     for( pet in allPets ){
-        let { name, specie, age, picture } = allPets[pet]
-
+        console.log(allPets[pet]);
+        let { name, specie, age, picture,adopted} = allPets[pet]
+        
         let petHtml = `
         <div class="col-12 col-md-6 mb-4">
         <div class="card pet-card">
@@ -94,13 +95,23 @@ const printAllPets = () => {
                 <p class="card-text">Especie: ${specie}</p>
                 <p class="card-text">Edad: ${age}</p>
                 <a href="#" class="btn btn-primary" data-pet-key=${pet}>Go somewhere</a>
-                <a href="adoptForm.html?adoptKey=${pet}" class="btn btn-success adopt" data-pet-key=${pet}>Adopt</a>
+                <a href="adoptForm.html?adoptKey=${pet}" class="btn btn-success adopt" data-pet-key=${pet}>Adoptame</a>
             </div>
             </div>
             </div>
         `
+<<<<<<< HEAD
         $(".pets-wrapper").append(petHtml)
         
+=======
+        if(allPets[pet].hasOwnProperty('adopted')){
+            if(adopted=="false"){
+                $(".pets-wrapper").append(petHtml)
+            }
+        }
+        
+            
+>>>>>>> b3162c87fd401166362c2a468b95adc25130402b
     }
 
 }

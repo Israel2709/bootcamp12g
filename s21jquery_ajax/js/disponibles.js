@@ -64,7 +64,7 @@ $("#save-pet").click(() => {
     printAllPets()
 })
 
-const printAllPets = () => {
+const printAllAvailablePets = () => {
     $(".pets-wrapper").empty()
     let allPets = getAllPets()
     for( pet in allPets ){
@@ -82,11 +82,16 @@ const printAllPets = () => {
             </div>
             </div>
         `
-        $(".pets-wrapper").append(petHtml)
+        if(allPets[pet].hasOwnProperty('adopted')){
+            if(allPets[pet].adopted=="false"){
+                $(".pets-wrapper").append(petHtml)
+            }
+        }
+
     }
 }
 
 
 
 //Imprimimos todas las mascotas desde el principio
-printAllPets()
+printAllAvailablePets()

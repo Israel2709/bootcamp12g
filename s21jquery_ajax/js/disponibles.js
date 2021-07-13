@@ -88,7 +88,7 @@ const printAllAvailablePets = () => {
             }
         }
         $(".adoptar").click(function(){
-            window.location.href = `adoptForm.html?key=${$(this).data('pet-key')}`;
+            window.location.href = `adoptForm.html?adoptKey=${$(this).data('pet-key')}`;
         })
     }
 }

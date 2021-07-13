@@ -14,9 +14,10 @@ const savePet = petData => {
         success: response => {
             $("#modalLongTitle").text("Enhorabuena!")
             $("#modalBody").text("Se ha agregado una mascota nueva!")
-            $("#btn-dismiss").text("Ok").addClass("btn-primary").removeClass("btn-secondary")
-            $("#btn-confirm").addClass("d-none")
             $("#modalCenter").modal('show')
+            $("#btn-confirm").click( () => {
+                $("#modalCenter").modal('hide')
+            })
             console.log( response )
         },
         error: error => {
@@ -98,15 +99,11 @@ const printAllPets = () => {
     }
 
     $(".btn-delete").click(evento => {
-        $("#modalLongTitle").text("Advertencia")
-        $("#modalBody").text("Seguro que desear eliminar una mascota?")
-        $("#btn-dismiss").text("Cancelar").addClass("btn-secondary")
-        $("#btn-confirm").text("Borrar").removeClass("d-none").addClass("btn-danger")
-        $("#modalCenter").modal('show')
+        $("#deleteModal").modal('show')
         let petID = evento.target.dataset.petKey
         //console.log(evento.target.dataset.petKey);
 
-        $("#btn-confirm").click( () => { 
+        $("#btn-delete-confirm").click( () => { 
             removePet(petID)
         })
         
@@ -122,11 +119,13 @@ const removePet = petId => {
             result = response
             console.log("Mascota borrada");
             //$("#modalCenter").modal('hide')
-
+            $("#deleteModal").modal('hide')
             $("#modalLongTitle").text("Mascota borrada")
             $("#modalBody").text("Se ha borrado una mascota")
-            $("#btn-dismiss").text("Ok").addClass("btn-primary").removeClass("btn-secondary")
-            $("#btn-confirm").addClass("d-none")
+            $("#modalCenter").modal('show')
+            $("#btn-confirm").click( () => {
+                $("#modalCenter").modal('hide')
+            })
             printAllPets()
             //$("#modalCenter").modal('show')
 

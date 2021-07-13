@@ -36,30 +36,52 @@
 
                 </div>
             </div>
-          
+        
         </div>
     </div>
 
     <!-- Modal -->
     <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalLongTitle">Enhorabuena!</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLongTitle">Enhorabuena!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    Se ha agregado una mascota nueva!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btn-confirm">Ok</button>
+                </div>
             </div>
-            <div class="modal-body" id="modalBody">
-              Se ha agregado una mascota nueva!
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" id="btn-dismiss" data-dismiss="modal">OK</button>
-              <button type="button" class="btn btn-primary d-none" id="btn-confirm">??</button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
+
+        <!-- Delete modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLongTitle">¡Advertencia!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="deleteModalBody">
+                        ¿Seguro que desea eliminar una mascota?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="btn-dismiss" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger " id="btn-delete-confirm">Borrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

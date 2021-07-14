@@ -118,7 +118,7 @@ const displaySelected = (someId) => {
 const printAllPets = petsData => {
     $(".pets-wrapper").empty()
     for( pet in petsData ){
-        let { name, specie, age, picture} = petsData[pet]
+        let { name, specie, age, picture, adopted} = petsData[pet]
         let petHtml = `
         <div class="col-12 col-md-6 mb-4">
         <div class="card pet-card">
@@ -129,7 +129,7 @@ const printAllPets = petsData => {
                 <p class="card-text">Edad: ${age}</p>
                 <button type="button" class="btn btn-primary btnDetalle" data-pet-key=${pet} data-toggle="modal" data-target="#exampleModal ">Detalle</button>
                 <button type="button" class="btn btn-danger btn-delete" data-pet-key=${pet}>Borrar</button>
-                <a href="adoptForm.html?adoptKey=${pet}" class="btn btn-success adopt" data-pet-key=${pet}>Adoptame</a>
+                ${!adopted ? '<a href="adoptForm.html?adoptKey=${pet}" class="btn btn-success adopt" data-pet-key=${pet}>Adoptame</a>':''}
             </div>
             </div>
             </div>
@@ -169,8 +169,8 @@ const removePet = petId => {
             console.log("Mascota borrada");
             //$("#modalCenter").modal('hide')
             $("#deleteModal").modal('hide')
-            $("#modalLongTitle").text("Mascota borrada")
-            $("#modalBody").text("Se ha borrado una mascota")
+            $("#modalLongTitle").text("¡Mascota borrada!")
+            $("#modalBody").text("Se ha borrado una mascota.")
             $("#modalCenter").modal('show')
             printAllPets( getAllPets() )
         },

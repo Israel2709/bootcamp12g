@@ -99,7 +99,7 @@ const displaySelected = (someId) => {
     $(".modal-title").html(name)
     
     let mascotaHtml = `
-    <div class="card pet-card2" style="width: 18rem;">
+    <div class="card pet-card">
     <img src="${picture}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Nombre: ${name}</h5>

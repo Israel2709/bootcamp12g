@@ -44,6 +44,8 @@ const printSelected = (someId) => {
 
 printSelected(param)
 
-$("#cerrar").click( () =>{
-  window.close()
+$('#cerrar').click(  ()=>{
+  
+    window.close()
+
 })

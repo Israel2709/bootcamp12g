@@ -1,5 +1,10 @@
 //https://blog-12g-default-rtdb.firebaseio.com/.json
 
+//Equipo 3
+/*
+3.- Crear avisos para el CRUD ( mostrar un aviso cuando una mascota se guarde exitosamente, y mostrar un aviso cuando se vaya a borrar una mascota --bootstrap modal-- )
+*/
+
 const BASE_URL = 'https://blog-12g-default-rtdb.firebaseio.com/israel'
 
 const getAllPets = () => {
@@ -20,13 +25,15 @@ const getAllPets = () => {
     return result
 }
 
-
 const savePet = petData => {
     $.ajax({
         method:"POST",
         url:`${BASE_URL}/pets.json`,
         data:JSON.stringify( petData ),
         success: response => {
+            $("#modalLongTitle").text("Enhorabuena!")
+            $("#modalBody").text("Se ha agregado una mascota nueva!")
+            $("#modalCenter").modal('show')
             console.log( response )
         },
         error: error => {
@@ -36,6 +43,7 @@ const savePet = petData => {
         async:false
     })
 }
+
 const patchPet = (petId, petData) => {
     $.ajax({
         method:"PATCH",
@@ -51,8 +59,6 @@ const patchPet = (petId, petData) => {
         async:false
     })
 }
-
-
 
 const getPetById = petId => {
     let result
@@ -97,6 +103,7 @@ const printAllPets = petsData => {
                 <p class="card-text">Especie: ${specie}</p>
                 <p class="card-text">Edad: ${age}</p>
                 <a href="#" class="btn btn-primary" data-pet-key=${pet}>Go somewhere</a>
+                <button type="button" class="btn btn-danger btn-delete" data-pet-key=${pet}>Borrar</button>
                 <a href="adoptForm.html?adoptKey=${pet}" class="btn btn-success adopt" data-pet-key=${pet}>Adoptame</a>
             </div>
             </div>
@@ -105,7 +112,42 @@ const printAllPets = petsData => {
         $(".pets-wrapper").append(petHtml) 
     }
 
+    $(".btn-delete").click(evento => {
+        $("#deleteModal").modal('show')
+        let petID = evento.target.dataset.petKey
+        $("#btn-delete-confirm").click( () => { 
+            removePet(petID)
+        })    
+    })
 }
+
+const removePet = petId => {
+    let result
+    $.ajax({
+        method:"DELETE",
+        url:`${BASE_URL}/pets/${petId}.json`,
+        success: response => {
+            result = response
+            console.log("Mascota borrada");
+            //$("#modalCenter").modal('hide')
+            $("#deleteModal").modal('hide')
+            $("#modalLongTitle").text("Mascota borrada")
+            $("#modalBody").text("Se ha borrado una mascota")
+            $("#modalCenter").modal('show')
+            printAllPets( getAllPets() )
+        },
+        error: error => {
+            console.log( "hay un error ")
+            console.log( error )
+        },
+        async:false
+    })
+    return result
+}
+
+$("#btn-confirm").click( () => {
+    $("#modalCenter").modal('hide')
+})
 
 $(".filter-radio-set input[type='radio']").click( event => {
     petsCollection = getAllPets()
@@ -121,6 +163,7 @@ $(".filter-radio-set input[type='radio']").click( event => {
     printAllPets(filterResult)
 })
 
+//Imprimimos todas las mascotas desde el principio
 let petsCollection = getAllPets()
 printAllPets( petsCollection )
 

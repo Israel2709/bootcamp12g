@@ -1,6 +1,26 @@
 //https://blog-12g-default-rtdb.firebaseio.com/.json
 
 const BASE_URL = 'https://blog-12g-default-rtdb.firebaseio.com/israel'
+
+const getAllPets = () => {
+    let result
+    $.ajax({
+        method:"GET",
+        url:`${BASE_URL}/pets.json`,
+        success: response => {
+            result = response
+        },
+        error: error => {
+            console.log( "hay un error ")
+            console.log( error )
+        },
+        async:false
+    })
+    console.log(result)
+    return result
+}
+
+
 const savePet = petData => {
     $.ajax({
         method:"POST",
@@ -32,22 +52,7 @@ const patchPet = (petId, petData) => {
     })
 }
 
-const getAllPets = () => {
-    let result
-    $.ajax({
-        method:"GET",
-        url:`${BASE_URL}/pets.json`,
-        success: response => {
-            result = response
-        },
-        error: error => {
-            console.log( "hay un error ")
-            console.log( error )
-        },
-        async:false
-    })
-    return result
-}
+
 
 const getPetById = petId => {
     let result
@@ -76,14 +81,13 @@ $("#save-pet").click(() => {
     })
     console.log( petObject )
     savePet( petObject )
-    printAllPets()
+    printAllPets( getAllPets() )
 })
 
-const printAllPets = () => {
+const printAllPets = petsData => {
     $(".pets-wrapper").empty()
-    let allPets = getAllPets()
-    for( pet in allPets ){
-        let { name, specie, age, picture} = allPets[pet]
+    for( pet in petsData ){
+        let { name, specie, age, picture} = petsData[pet]
         let petHtml = `
         <div class="col-12 col-md-6 mb-4">
         <div class="card pet-card">
@@ -103,7 +107,19 @@ const printAllPets = () => {
 
 }
 
+$(".filter-radio-set input[type='radio']").click( event => {
+    petsCollection = getAllPets()
+    let filterOption = $(event.target).val()
+    console.log( petsCollection )
+    console.log( filterOption )
 
+    let filterResult = Object.keys(petsCollection).reduce( ( accum, current ) => {
+        let petObject = petsCollection[current]
+        return petObject.specie && petObject.specie.toLowerCase() === filterOption.toLowerCase() ? {...accum,[current]:petObject } : accum
+    },{})
+    console.log(filterResult)
+    printAllPets(filterResult)
+})
 
-//Imprimimos todas las mascotas desde el principio
-printAllPets()
+let petsCollection = getAllPets()
+printAllPets( petsCollection )

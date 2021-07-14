@@ -6,6 +6,25 @@
 */
 
 const BASE_URL = 'https://blog-12g-default-rtdb.firebaseio.com/israel'
+
+const getAllPets = () => {
+    let result
+    $.ajax({
+        method:"GET",
+        url:`${BASE_URL}/pets.json`,
+        success: response => {
+            result = response
+        },
+        error: error => {
+            console.log( "hay un error ")
+            console.log( error )
+        },
+        async:false
+    })
+    console.log(result)
+    return result
+}
+
 const savePet = petData => {
     $.ajax({
         method:"POST",
@@ -25,13 +44,13 @@ const savePet = petData => {
     })
 }
 
-const getAllPets = () => {
-    let result
+const patchPet = (petId, petData) => {
     $.ajax({
-        method:"GET",
-        url:`${BASE_URL}/pets.json`,
+        method:"PATCH",
+        url:`${BASE_URL}/pets/${petId}.json`,
+        data:JSON.stringify( petData ),
         success: response => {
-            result = response
+            console.log( response )
         },
         error: error => {
             console.log( "hay un error ")
@@ -39,7 +58,6 @@ const getAllPets = () => {
         },
         async:false
     })
-    return result
 }
 
 const getPetById = petId => {
@@ -60,7 +78,7 @@ const getPetById = petId => {
 }
 
 $("#save-pet").click(() => {
-    let petObject = {}
+    let petObject = {adopted:false}
     $("#pet-form input").each( function(){
         let property = $(this).attr("name")
         let value = $(this).val()
@@ -69,41 +87,37 @@ $("#save-pet").click(() => {
     })
     console.log( petObject )
     savePet( petObject )
-    printAllPets()
+    printAllPets( getAllPets() )
 })
 
-const printAllPets = () => {
+const printAllPets = petsData => {
     $(".pets-wrapper").empty()
-    let allPets = getAllPets()
-    for( pet in allPets ){
-        let { name, specie, age, picture } = allPets[pet]
-
+    for( pet in petsData ){
+        let { name, specie, age, picture} = petsData[pet]
         let petHtml = `
         <div class="col-12 col-md-6 mb-4">
         <div class="card pet-card">
-            <img src=${picture} class="card-img-top" alt="...">
+        <a href = "vista.html?mascota=${pet}" target = "_blank" > <img src=${picture} class="card-img-top" alt="..."> </a>
             <div class="card-body">
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">Especie: ${specie}</p>
                 <p class="card-text">Edad: ${age}</p>
                 <a href="#" class="btn btn-primary" data-pet-key=${pet}>Go somewhere</a>
                 <button type="button" class="btn btn-danger btn-delete" data-pet-key=${pet}>Borrar</button>
+                <a href="adoptForm.html?adoptKey=${pet}" class="btn btn-success adopt" data-pet-key=${pet}>Adoptame</a>
             </div>
             </div>
             </div>
         `
-        $(".pets-wrapper").append(petHtml)
+        $(".pets-wrapper").append(petHtml) 
     }
 
     $(".btn-delete").click(evento => {
         $("#deleteModal").modal('show')
         let petID = evento.target.dataset.petKey
-        //console.log(evento.target.dataset.petKey);
-
         $("#btn-delete-confirm").click( () => { 
             removePet(petID)
-        })
-        
+        })    
     })
 }
 
@@ -120,9 +134,7 @@ const removePet = petId => {
             $("#modalLongTitle").text("Mascota borrada")
             $("#modalBody").text("Se ha borrado una mascota")
             $("#modalCenter").modal('show')
-            printAllPets()
-            //$("#modalCenter").modal('show')
-
+            printAllPets( getAllPets() )
         },
         error: error => {
             console.log( "hay un error ")
@@ -137,5 +149,25 @@ $("#btn-confirm").click( () => {
     $("#modalCenter").modal('hide')
 })
 
+$(".filter-radio-set input[type='radio']").click( event => {
+    petsCollection = getAllPets()
+    let filterOption = $(event.target).val()
+    console.log( petsCollection )
+    console.log( filterOption )
+
+    let filterResult = Object.keys(petsCollection).reduce( ( accum, current ) => {
+        let petObject = petsCollection[current]
+        return petObject.specie && petObject.specie.toLowerCase() === filterOption.toLowerCase() ? {...accum,[current]:petObject } : accum
+    },{})
+    console.log(filterResult)
+    printAllPets(filterResult)
+})
+
 //Imprimimos todas las mascotas desde el principio
-printAllPets()
+let petsCollection = getAllPets()
+printAllPets( petsCollection )
+
+//agregamos el listener al boton de disponibles
+$('.disponibles').click(function(){
+    location.href = "disponibles.html"
+})

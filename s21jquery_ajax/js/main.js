@@ -84,6 +84,30 @@ $("#save-pet").click(() => {
     printAllPets( getAllPets() )
 })
 
+const displaySelected = (someId) => {
+    let mascota = getPetById(someId)
+    let { name, specie, age, picture } = mascota
+   
+
+    $(".modal-body").empty()   
+    $(".modal-title").html(name)
+    
+    let mascotaHtml = `
+    <div class="card pet-card2" style="width: 18rem;">
+    <img src="${picture}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Nombre: ${name}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Especie: ${specie}</li>
+      <li class="list-group-item">Edad: ${age}</li>
+    </ul>
+  </div>`
+  $(".modal-body").append(mascotaHtml)
+
+}
+
+
 const printAllPets = petsData => {
     $(".pets-wrapper").empty()
     for( pet in petsData ){
@@ -96,7 +120,7 @@ const printAllPets = petsData => {
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">Especie: ${specie}</p>
                 <p class="card-text">Edad: ${age}</p>
-                <a href="#" class="btn btn-primary" data-pet-key=${pet}>Go somewhere</a>
+                <button type="button" class="btn btn-primary btnDetalle" data-pet-key=${pet} data-toggle="modal" data-target="#exampleModal ">Detalle</button>
                 <a href="adoptForm.html?adoptKey=${pet}" class="btn btn-success adopt" data-pet-key=${pet}>Adoptame</a>
             </div>
             </div>
@@ -105,7 +129,17 @@ const printAllPets = petsData => {
         $(".pets-wrapper").append(petHtml) 
     }
 
+    $('.btnDetalle').click( (event)=>{
+        //console.log(event)
+        let id = $(event.target).data("pet-key")
+        // console.log("id", $(event.target).data("pet-key"))
+        displaySelected (id)
+    } )
+
+
 }
+
+
 
 $(".filter-radio-set input[type='radio']").click( event => {
     petsCollection = getAllPets()
@@ -128,3 +162,4 @@ printAllPets( petsCollection )
 $('.disponibles').click(function(){
     location.href = "disponibles.html"
 })
+

@@ -13,11 +13,11 @@ let getAdopters = ()=>{
 let printAdopters = function(adopted){
     $(".adopters-profile").html("")
     adopted.forEach(element => {
-        let { picture,adoptersname ="",address="",phone ="",adopted=false} = element
+        let { picture,adoptersname ="",address="",phone ="",adopted=false, adopterImage = ""} = element
         let petHtml = `
         <div class="col-12 col-md-6 mb-4">
         <div class="card pet-card">
-            <img src=${picture} class="card-img-top" alt="...">
+            <img src=${adopterImage} class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${adoptersname}</h5>
                 <p class="card-text">Direccion: ${address}</p>

@@ -1,26 +1,6 @@
 //https://blog-12g-default-rtdb.firebaseio.com/.json
 
 const BASE_URL = 'https://blog-12g-default-rtdb.firebaseio.com/israel'
-
-const getAllPets = () => {
-    let result
-    $.ajax({
-        method:"GET",
-        url:`${BASE_URL}/pets.json`,
-        success: response => {
-            result = response
-        },
-        error: error => {
-            console.log( "hay un error ")
-            console.log( error )
-        },
-        async:false
-    })
-    console.log(result)
-    return result
-}
-
-
 const savePet = petData => {
     $.ajax({
         method:"POST",
@@ -36,13 +16,14 @@ const savePet = petData => {
         async:false
     })
 }
-const patchPet = (petId, petData) => {
+
+const getAllPets = () => {
+    let result
     $.ajax({
-        method:"PATCH",
-        url:`${BASE_URL}/pets/${petId}.json`,
-        data:JSON.stringify( petData ),
+        method:"GET",
+        url:`${BASE_URL}/pets.json`,
         success: response => {
-            console.log( response )
+            result = response
         },
         error: error => {
             console.log( "hay un error ")
@@ -50,9 +31,8 @@ const patchPet = (petId, petData) => {
         },
         async:false
     })
+    return result
 }
-
-
 
 const getPetById = petId => {
     let result
@@ -81,45 +61,39 @@ $("#save-pet").click(() => {
     })
     console.log( petObject )
     savePet( petObject )
-    printAllPets( getAllPets() )
+    printAllPets()
 })
 
-const printAllPets = petsData => {
+const printAllAvailablePets = () => {
     $(".pets-wrapper").empty()
-    for( pet in petsData ){
-        let { name, specie, age, picture} = petsData[pet]
+    let allPets = getAllPets()
+    for( pet in allPets ){
+        let { name, specie, age, picture} = allPets[pet]
         let petHtml = `
         <div class="col-12 col-md-6 mb-4">
         <div class="card pet-card">
-        <a href = "vista.html?mascota=${pet}" target = "_blank" > <img src=${picture} class="card-img-top" alt="..."> </a>
+            <img src=${picture} class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">Especie: ${specie}</p>
                 <p class="card-text">Edad: ${age}</p>
-                <a href="#" class="btn btn-primary" data-pet-key=${pet}>Go somewhere</a>
-                <a href="adoptForm.html?adoptKey=${pet}" class="btn btn-success adopt" data-pet-key=${pet}>Adoptame</a>
+                <a href="#" class="btn btn-primary adoptar" data-pet-key=${pet} >Adoptame</a>
             </div>
             </div>
             </div>
         `
-        $(".pets-wrapper").append(petHtml) 
+        if(allPets[pet].hasOwnProperty('adopted')){
+            if(allPets[pet].adopted=="false"){
+                $(".pets-wrapper").append(petHtml)
+            }
+        }
+        $(".adoptar").click(function(){
+            window.location.href = `adoptForm.html?adoptKey=${$(this).data('pet-key')}`;
+        })
     }
-
 }
 
-$(".filter-radio-set input[type='radio']").click( event => {
-    petsCollection = getAllPets()
-    let filterOption = $(event.target).val()
-    console.log( petsCollection )
-    console.log( filterOption )
 
-    let filterResult = Object.keys(petsCollection).reduce( ( accum, current ) => {
-        let petObject = petsCollection[current]
-        return petObject.specie && petObject.specie.toLowerCase() === filterOption.toLowerCase() ? {...accum,[current]:petObject } : accum
-    },{})
-    console.log(filterResult)
-    printAllPets(filterResult)
-})
 
-let petsCollection = getAllPets()
-printAllPets( petsCollection )
+//Imprimimos todas las mascotas desde el principio
+printAllAvailablePets()

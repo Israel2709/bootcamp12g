@@ -40,8 +40,9 @@ $("#adopt-pet").click((event) => {
         patchPet(petKeyParam,adopterObject)
         console.log()
         updateCard(getPetById(petKeyParam))
-
-    
+        //agrege esta redireccion para volver a la vista de mascotas para adoptar
+        window.location.href=`disponibles.html`
+        
 })
 
 updateCard(pet)

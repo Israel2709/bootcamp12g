@@ -1,6 +1,6 @@
 //https://blog-12g-default-rtdb.firebaseio.com/.json
 
-//Equipo 2
+//Equipo 3
 /*
 3.- Crear avisos para el CRUD ( mostrar un aviso cuando una mascota se guarde exitosamente, y mostrar un aviso cuando se vaya a borrar una mascota --bootstrap modal-- )
 */
@@ -15,9 +15,6 @@ const savePet = petData => {
             $("#modalLongTitle").text("Enhorabuena!")
             $("#modalBody").text("Se ha agregado una mascota nueva!")
             $("#modalCenter").modal('show')
-            $("#btn-confirm").click( () => {
-                $("#modalCenter").modal('hide')
-            })
             console.log( response )
         },
         error: error => {
@@ -123,9 +120,6 @@ const removePet = petId => {
             $("#modalLongTitle").text("Mascota borrada")
             $("#modalBody").text("Se ha borrado una mascota")
             $("#modalCenter").modal('show')
-            $("#btn-confirm").click( () => {
-                $("#modalCenter").modal('hide')
-            })
             printAllPets()
             //$("#modalCenter").modal('show')
 
@@ -139,6 +133,9 @@ const removePet = petId => {
     return result
 }
 
+$("#btn-confirm").click( () => {
+    $("#modalCenter").modal('hide')
+})
 
 //Imprimimos todas las mascotas desde el principio
 printAllPets()

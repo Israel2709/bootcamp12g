@@ -31,12 +31,9 @@ let updateCard = (pet)=>{
 $("#adopt-pet").click((event) => {
 
     let adopterObject= {};
-
-        
         $("#adopt-form input").each( function(){
             let property = $(this).attr("name")
             let value = $(this).val()
-            
         })
         adopterObject = {...adopterObject, ["adopted"] : true }
         console.log(adopterObject)

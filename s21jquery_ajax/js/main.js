@@ -100,10 +100,6 @@ const printAllPets = () => {
             </div>
             </div>
         `
-<<<<<<< HEAD
-        $(".pets-wrapper").append(petHtml)
-        
-=======
         if(allPets[pet].hasOwnProperty('adopted')){
             if(adopted=="false"){
                 $(".pets-wrapper").append(petHtml)
@@ -111,7 +107,6 @@ const printAllPets = () => {
         }
         
             
->>>>>>> b3162c87fd401166362c2a468b95adc25130402b
     }
 
 }

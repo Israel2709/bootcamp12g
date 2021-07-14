@@ -67,7 +67,7 @@ const getPetById = petId => {
 }
 
 $("#save-pet").click(() => {
-    let petObject = {}
+    let petObject = {adopted:false}
     $("#pet-form input").each( function(){
         let property = $(this).attr("name")
         let value = $(this).val()
@@ -107,3 +107,8 @@ const printAllPets = () => {
 
 //Imprimimos todas las mascotas desde el principio
 printAllPets()
+
+//agregamos el listener al boton de disponibles
+$('.disponibles').click(function(){
+    location.href = "disponibles.html"
+})

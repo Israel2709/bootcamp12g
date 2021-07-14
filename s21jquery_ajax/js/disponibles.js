@@ -83,7 +83,7 @@ const printAllAvailablePets = () => {
             </div>
         `
         if(allPets[pet].hasOwnProperty('adopted')){
-            if(allPets[pet].adopted=="false"){
+            if(allPets[pet].adopted==false){
                 $(".pets-wrapper").append(petHtml)
             }
         }
@@ -97,3 +97,8 @@ const printAllAvailablePets = () => {
 
 //Imprimimos todas las mascotas desde el principio
 printAllAvailablePets()
+
+//agregamos el listener al boton para movernos a la pagina principal
+$('.home').click(function(){
+    location.href = "index.html"
+})

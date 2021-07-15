@@ -5,7 +5,7 @@ const pet = getPetById(petKeyParam);
 console.log(petKeyParam)
 console.log(pet)
 let updateCard = (pet)=>{
-    let { name, specie, age, picture,adoptersname ="",address="",phone ="",adopted=false,adopterImage = ""} = pet
+    let { name="", specie="", age="", picture="",adoptersname ="",address="",phone ="",adopted=false,adopterImage = ""} = pet
     $(".pet-profile").html("")
     let petHtml = `
     <div class="col-12 col-md-6 mb-4">

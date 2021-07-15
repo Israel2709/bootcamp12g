@@ -1,7 +1,7 @@
 //https://blog-12g-default-rtdb.firebaseio.com/.json
 
 const BASE_URL = 'https://blog-12g-default-rtdb.firebaseio.com/israel'
-const savePet = petData => {
+/*const savePet = petData => {
     $.ajax({
         method:"POST",
         url:`${BASE_URL}/pets.json`,
@@ -15,7 +15,7 @@ const savePet = petData => {
         },
         async:false
     })
-}
+}*/
 
 const getAllPets = () => {
     let result
@@ -34,7 +34,7 @@ const getAllPets = () => {
     return result
 }
 
-const getPetById = petId => {
+/*const getPetById = petId => {
     let result
     $.ajax({
         method:"GET",
@@ -49,9 +49,9 @@ const getPetById = petId => {
         async:false
     })
     return result
-}
+}*/
 
-$("#save-pet").click(() => {
+/*$("#save-pet").click(() => {
     let petObject = {}
     $("#pet-form input").each( function(){
         let property = $(this).attr("name")
@@ -62,7 +62,7 @@ $("#save-pet").click(() => {
     console.log( petObject )
     savePet( petObject )
     printAllPets()
-})
+})*/
 
 const printAllAvailablePets = () => {
     $(".pets-wrapper").empty()
@@ -83,7 +83,7 @@ const printAllAvailablePets = () => {
             </div>
         `
         if(allPets[pet].hasOwnProperty('adopted')){
-            if(allPets[pet].adopted=="false"){
+            if(allPets[pet].adopted==false){
                 $(".pets-wrapper").append(petHtml)
             }
         }
@@ -97,3 +97,8 @@ const printAllAvailablePets = () => {
 
 //Imprimimos todas las mascotas desde el principio
 printAllAvailablePets()
+
+//agregamos el listener al boton para movernos a la pagina principal
+$('.home').click(function(){
+    location.href = "index.html"
+})

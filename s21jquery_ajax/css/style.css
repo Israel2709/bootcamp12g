@@ -1,7 +1,58 @@
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+.navbar {
+  background-color: #d5c8df;
+}
+
+.navbar #nav-logo {
+  height: 80px;
+}
+
+#form-header {
+  color: #d5c8df;
+}
+
+#pet-form {
+  background-color: #dfbed0;
+}
+
+#pet-form #save-pet {
+  background-color: white;
+  border-color: white;
+  color: #d5c8df;
+}
+
+.btnDetalle {
+  background-color: #dfbed0;
+  color: white;
+}
+
+.btn-delete {
+  background-color: peachpuff;
+  color: white;
+}
+
+.adopt {
+  background-color: #d5c8df;
+  color: white;
+}
+
 .pet-card img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   height: 200px;
+}
+
+h5 {
+  color: #838b95;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.5rem;
+}
+
+h1 {
+  color: #d5c8df;
 }
 /*# sourceMappingURL=style.css.map */

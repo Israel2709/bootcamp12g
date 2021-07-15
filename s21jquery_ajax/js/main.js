@@ -124,12 +124,12 @@ const printAllPets = petsData => {
         <div class="card pet-card">
         <a href = "vista.html?mascota=${pet}" target = "_blank" > <img src=${picture} class="card-img-top" alt="..."> </a>
             <div class="card-body">
-                <h5 class="card-title">${name}</h5>
+                <h5 class="card-title"><img class="pr-1" style="width: 18px; height: 15px;" src="./img/paw.png" alt="paw">${name}</h5>
                 <p class="card-text">Especie: ${specie}</p>
                 <p class="card-text">Edad: ${age}</p>
-                <button type="button" class="btn btn-primary btnDetalle" data-pet-key=${pet} data-toggle="modal" data-target="#exampleModal ">Detalle</button>
-                <button type="button" class="btn btn-danger btn-delete" data-pet-key=${pet}>Borrar</button>
-                ${!adopted ? '<a href="adoptForm.html?adoptKey=${pet}" class="btn btn-success adopt" data-pet-key=${pet}>Adoptame</a>':''}
+                <button type="button" class="btn  btnDetalle" data-pet-key=${pet} data-toggle="modal" data-target="#exampleModal ">Detalle</button>
+                <button type="button" class="btn btn-delete" data-pet-key=${pet}>Borrar</button>
+                ${!adopted ? '<a href="adoptForm.html?adoptKey=${pet}" class="btn  adopt" data-pet-key=${pet}>Adoptame</a>':''}
             </div>
             </div>
             </div>

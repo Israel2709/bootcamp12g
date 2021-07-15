@@ -1,3 +1,46 @@
+$lavender: hsl(273, 26%, 83%);
+$thistle: hsl(327, 34%, 81%);
+$romanSilver: hsl(215, 8%, 55%);
+$beauBlue: hsl(204, 49%, 87%);
+
+*{
+    font-family: 'Nunito', sans-serif;
+}
+
+
+.navbar{
+    background-color: $lavender;
+    #nav-logo{
+        height: 80px;
+    }
+}
+
+#form-header{
+    color: $lavender;
+}
+#pet-form{
+    background-color: $thistle;
+    #save-pet{
+    background-color: white;
+    border-color: white;
+    color: $lavender;
+}
+}
+
+.btnDetalle{
+    background-color: $thistle;
+    color: white;
+}
+
+.btn-delete{
+ background-color: peachpuff;
+ color: white ;
+}
+.adopt{
+    background-color: $lavender;
+    color: white;
+}
+
 .pet-card{
     img{
         width: 100%;
@@ -5,3 +48,14 @@
         height: 200px;
     }
 }
+
+h5{
+    color: $romanSilver;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.5rem;
+}
+
+h1{
+    color: $lavender;
+}
+

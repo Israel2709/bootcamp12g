@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 names-wrapper"></div>
+            <form class="bg-dark text-white p-3 border rounded">
+                <div class="form-group">
+                    <label for=""></label>
+                    <input type="text" class="form-control" placeholder="Ponle nombre a tu recuerdo!!!" id="memory-title">
+                </div>
+                <div class="form-group">
+                  <label for="file">Elige la foto de tu recuerdo</label>
+                  <input 
+                    type="file" class="form-control-file" 
+                    id="file"
+                >
+                </div>
+                <button type="button" class="btn btn-success" id="save-memory">Guardar recuerdo</button>
+            </form>
+            <div class="memories-wrapper">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyB59yHiuPXY3Cuvtro6x3_v9UnhNCuoTbo",
+            authDomain: "ism-firestorage-sample.firebaseapp.com",
+            projectId: "ism-firestorage-sample",
+            storageBucket: "ism-firestorage-sample.appspot.com",
+            messagingSenderId: "1022573322770",
+            appId: "1:1022573322770:web:dd9e8cee8b4ec67d102ecb"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

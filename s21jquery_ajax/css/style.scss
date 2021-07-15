@@ -1,3 +1,49 @@
+$lavender: hsl(273, 26%, 83%);
+$thistle: hsl(327, 34%, 81%);
+$romanSilver: hsl(215, 8%, 55%);
+$beauBlue: hsl(204, 49%, 87%);
+
+*{
+    font-family: 'Nunito', sans-serif;
+}
+
+
+.navbar{
+    background-color: $lavender;
+    img{
+        height: 55px;
+    }
+    li{
+        a{
+            font-family: 'Patrick Hand', cursive;
+        }
+    }
+}
+
+
+#pet-form{
+    background-color: $thistle;
+    #save-pet{
+    background-color: white;
+    border-color: white;
+    color: $lavender;
+}
+}
+
+.btnDetalle{
+    background-color: $thistle;
+    color: white;
+}
+
+.btn-delete{
+ background-color: peachpuff;
+ color: white ;
+}
+.adopt{
+    background-color: $lavender;
+    color: white;
+}
+
 .pet-card{
     img{
         width: 100%;
@@ -6,6 +52,50 @@
     }
 }
 
+h6{
+    color: $romanSilver;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.8rem;
+}
+
+h1{
+    color: $lavender;
+    font-family:'Patrick Hand', cursive;
+    font-size: 4rem;
+}
+
+h5{
+    color: $thistle;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 2rem;
+}
+
+.filter-form{
+    background-color: $thistle;
+}
+
+.carousel-inner{
+    img{
+        height: 90vh;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.add-pet-wrapper{
+    height: 100vh;
+}
+
+#btn-dismiss{
+    border-color: gray;
+    color: gray;
+}
+
+#btn-delete-confirm, #btn-confirm{
+    background-color: coral;
+    color: white;
+    width: 5rem;
+}
 .body-detail {
     margin-top: 22em;
   }
@@ -43,4 +133,11 @@
   .body-background {
     background-color: rgb(250, 243, 243);
   }
-  
+
+.scroll-down{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 99;
+}

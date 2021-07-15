@@ -132,16 +132,16 @@ const printAllPets = petsData => {
     for( pet in petsData ){
         let { name, specie, age, picture, adopted} = petsData[pet]
         let petHtml = `
-        <div class="col-12 col-md-6 mb-4">
+        <div class="col-12 col-md-4 mb-5">
         <div class="card pet-card">
         <a href = "vista.html?mascota=${pet}" target = "_blank" > <img src=${picture} class="card-img-top" alt="..."> </a>
             <div class="card-body">
-                <h5 class="card-title">${name}</h5>
+                <h6 class="card-title"><img class="pr-1" style="width: 18px; height: 15px;" src="./img/paw.png" alt="paw">${name}</h6>
                 <p class="card-text">Especie: ${specie}</p>
                 <p class="card-text">Edad: ${age}</p>
-                <button type="button" class="btn btn-primary btnDetalle" data-pet-key=${pet} data-toggle="modal" data-target="#exampleModal ">Detalle</button>
-                <button type="button" class="btn btn-danger btn-delete" data-pet-key=${pet}>Borrar</button>
-                ${!adopted ? `<a href="adoptForm.html?adoptKey=${pet}" class="btn btn-success adopt" data-pet-key=${pet}>Adoptame</a>`:''}
+                <button type="button" class="btn  btnDetalle" data-pet-key=${pet} data-toggle="modal" data-target="#exampleModal ">Detalle</button>
+                <button type="button" class="btn  btn-delete" data-pet-key=${pet}>Borrar</button>
+                ${!adopted ? `<a href="adoptForm.html?adoptKey=${pet}" class="btn  adopt" data-pet-key=${pet}>Adóptame</a>`:''}
             </div>
             </div>
             </div>
@@ -200,7 +200,7 @@ $("#btn-confirm").click( () => {
 $("#specie-filter").change(function() {
     let filterOption = $("#specie-filter").val();
     petsCollection = getAllPets()
-     console.log( petsCollection )
+        console.log( petsCollection )
     console.log( filterOption )
 
     let filterResult = Object.keys(petsCollection).reduce( ( accum, current ) => {
@@ -214,7 +214,7 @@ $("#specie-filter").change(function() {
 const capitalize = (s) => {
     if (typeof s !== 'string') return ''
     return s.charAt(0).toUpperCase() + s.slice(1)
-  }
+    }
 
 
  function fillSelectSpecies(specie){   
@@ -233,7 +233,7 @@ const capitalize = (s) => {
 
         arraySpecies.push(specieCap);
 
-         console.log('first data array generated', arraySpecies);
+        console.log('first data array generated', arraySpecies);
        }
    }
     
@@ -246,3 +246,19 @@ $('.disponibles').click(function(){
     location.href = "disponibles.html"
 })
 
+//Section animation
+$('.scroll-down').click((event) =>{
+    let sections = $('.section')
+    sections.each((index, element)=>{
+        let section = $(element)
+        let sectionOffset = section.offset().top
+        console.log(section.offset().top)
+        let htmlElement = $('html')
+        let currentScrollPosition = htmlElement.scrollTop()
+        console.log(currentScrollPosition)
+        if (sectionOffset > (currentScrollPosition + 50)){
+            htmlElement.animate({ scrollTop: sectionOffset}, 1000)
+            return false
+        }
+    })
+})

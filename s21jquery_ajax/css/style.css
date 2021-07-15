@@ -1,8 +1,93 @@
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+.navbar {
+  background-color: #d5c8df;
+}
+
+.navbar img {
+  height: 55px;
+}
+
+.navbar li a {
+  font-family: 'Patrick Hand', cursive;
+}
+
+#pet-form {
+  background-color: #dfbed0;
+}
+
+#pet-form #save-pet {
+  background-color: white;
+  border-color: white;
+  color: #d5c8df;
+}
+
+.btnDetalle {
+  background-color: #dfbed0;
+  color: white;
+}
+
+.btn-delete {
+  background-color: peachpuff;
+  color: white;
+}
+
+.adopt {
+  background-color: #d5c8df;
+  color: white;
+}
+
 .pet-card img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   height: 200px;
+}
+
+h6 {
+  color: #838b95;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.8rem;
+}
+
+h1 {
+  color: #d5c8df;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 4rem;
+}
+
+h5 {
+  color: #dfbed0;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 2rem;
+}
+
+.filter-form {
+  background-color: #dfbed0;
+}
+
+.carousel-inner img {
+  height: 90vh;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.add-pet-wrapper {
+  height: 100vh;
+}
+
+#btn-dismiss {
+  border-color: gray;
+  color: gray;
+}
+
+#btn-delete-confirm, #btn-confirm {
+  background-color: coral;
+  color: white;
+  width: 5rem;
 }
 
 .body-detail {
@@ -50,5 +135,13 @@
 
 .body-background {
   background-color: #faf3f3;
+}
+
+.scroll-down {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 99;
 }
 /*# sourceMappingURL=style.css.map */

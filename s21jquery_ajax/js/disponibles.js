@@ -64,9 +64,10 @@ const getAllPets = () => {
     printAllPets()
 })*/
 
-const printAllAvailablePets = () => {
+const printAllAvailablePets = (especie=null) => {
     $(".pets-wrapper").empty()
     let allPets = getAllPets()
+    console.log(allPets)
     for( pet in allPets ){
         let { name, specie, age, picture} = allPets[pet]
         let petHtml = `
@@ -82,9 +83,15 @@ const printAllAvailablePets = () => {
             </div>
             </div>
         `
+        
         if(allPets[pet].hasOwnProperty('adopted')){
             if(allPets[pet].adopted==false){
-                $(".pets-wrapper").append(petHtml)
+                if(especie ==null){
+                    $(".pets-wrapper").append(petHtml)
+                }
+                else if(allPets[pet].specie==especie){
+                    $(".pets-wrapper").append(petHtml)
+                }
             }
         }
         $(".adoptar").click(function(){
@@ -92,8 +99,11 @@ const printAllAvailablePets = () => {
         })
     }
 }
-
-
+$('#specie-filter').change(function(){
+    let filterOption = $("#specie-filter").val();
+    console.log(filterOption);
+    printAllAvailablePets(filterOption);
+})
 
 //Imprimimos todas las mascotas desde el principio
 printAllAvailablePets()

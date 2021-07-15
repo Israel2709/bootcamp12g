@@ -62,6 +62,14 @@ h6{
 
 h1{
     color: $lavender;
+    font-family:'Patrick Hand', cursive;
+    font-size: 4rem;
+}
+
+h5{
+    color: $thistle;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 2rem;
 }
 
 .filter-form{
@@ -74,4 +82,19 @@ h1{
         width: 100%;
         object-fit: cover;
     }
+}
+
+.add-pet-wrapper{
+    height: 100vh;
+}
+
+#btn-dismiss{
+    border-color: gray;
+    color: gray;
+}
+
+#btn-delete-confirm, #btn-confirm{
+    background-color: coral;
+    color: white;
+    width: 5rem;
 }

@@ -97,15 +97,6 @@ $("#save-pet").click(() => {
     })
     console.log( petObject )
     var checkValidate =  $("#pet-form .is-invalid");
-<<<<<<< HEAD
-    if(checkValidate==0){
-    savePet( petObject )
-    printAllPets( getAllPets() )
-}else{
-    console.log("No procesado por datos inválidos en form")
-}
-})
-=======
     if(checkValidate.length==0){
         savePet( petObject )
         printAllPets( getAllPets() )
@@ -114,7 +105,6 @@ $("#save-pet").click(() => {
     }
     }
     )
->>>>>>> 752d193e606d484298bc014beaf3f3d4bc4a2a9c
 
 const displaySelected = (someId) => {
     let mascota = getPetById(someId)
@@ -145,7 +135,7 @@ const printAllPets = petsData => {
     for( pet in petsData ){
         let { name, specie, age, picture, adopted} = petsData[pet]
         let petHtml = `
-        <div class="col-12 col-md-6 mb-4">
+        <div class="col-12 col-md-4 mb-5">
         <div class="card pet-card">
         <a href = "vista.html?mascota=${pet}" target = "_blank" > <img src=${picture} class="card-img-top" alt="..."> </a>
             <div class="card-body">

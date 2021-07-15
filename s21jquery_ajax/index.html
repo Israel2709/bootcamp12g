@@ -70,9 +70,9 @@
         </div>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-12 col-md-4">
-                <h1 id="form-header" class="text-center  rounded" style="font-family:'Patrick Hand', cursive;" >Añade un amiguito en adopción</h1>
-                <form id="pet-form" action="" class="p-3  text-white rounded">
+            <div class="col-12 col d-flex flex-column align-items-center justify-content-center add-pet-wrapper">
+                <h1 id="form-header" class="text-center  rounded mb-5">Añade un amiguito en adopción</h1>
+                <form id="pet-form" action="" class="p-3  text-white rounded w-75">
                     <div class="form-group">
                         <input name="name" type="text" class="form-control"
                             placeholder="Ingresa el nombre de tu mascota" value="Ikki" required aria-describedby="validationServer1">
@@ -107,12 +107,13 @@
                                 Por favor, ingrese la url de la imagen.
                             </div> 
                     </div>
-                    <button style="font-family: 'Patrick Hand', cursive; font-size: 1.2rem;" type="button" id="save-pet" class="btn btn-success">Guardar</button>
+                    <button style="font-family: 'Patrick Hand', cursive; font-size: 1.2rem;" type="button" id="save-pet" class="btn">Guardar</button>
                 </form>
             </div>
-            <div class="col-12 col-md-8">
-                <div class="w-100">
-                    <form class="p-3 text-white rounded filter-form mb-3">
+            <div class="col-12">
+                <div class="w-100 d-flex flex-column align-items-center">
+                    <h1 class="mt-5 mb-5 text-center" >Todas nuestras mascotas</h1>
+                    <form class="p-3 text-white rounded filter-form mb-5 w-75">
                         <div class="form-group">
                             <label for="specie-filter">Filtrar por especie</label>
                             <select name="specie-filter" class="form-control" id="specie-filter"  aria-describedby="validationServer5">
@@ -145,7 +146,7 @@
                     Se ha agregado una mascota nueva!
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="btn-confirm">Ok</button>
+                    <button type="button" class="btn" id="btn-confirm">Ok</button>
                 </div>
             </div>
         </div>   
@@ -181,8 +182,8 @@
                         ¿Seguro que desea eliminar una mascota?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" id="btn-dismiss" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-danger" id="btn-delete-confirm">Borrar</button>
+                        <button type="button" class="btn" id="btn-dismiss" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn" id="btn-delete-confirm">Borrar</button>
                     </div>
                 </div>
             </div>

@@ -8,9 +8,9 @@
 const BASE_URL = 'https://blog-12g-default-rtdb.firebaseio.com/israel'
 let arraySpecies = []; 
 
-$(document).ready(function() {
-    $('.select2').select2();
-});
+// $(document).ready(function() {
+//     $('.select2').select2();
+// });
 
 const getAllPets = () => {
     let result
@@ -86,7 +86,7 @@ const getPetById = petId => {
 
 $("#save-pet").click(() => {
     let petObject = {adopted:false}
-    $("#pet-form input").each( function(){
+    $("#pet-form input,#pet-form select").each( function(){
         let property = $(this).attr("name")
         let value = $(this).val()
         if(value === "" || value === null){
@@ -96,14 +96,15 @@ $("#save-pet").click(() => {
         petObject = {...petObject, [property] : value }
     })
     console.log( petObject )
-   var checkValidate =  $("#pet-form .is-invalid");
-   if(checkValidate==0){
-    savePet( petObject )
-    printAllPets( getAllPets() )
-}else{
-    console.log("No procesado por datos inválidos en form")
-}
-})
+    var checkValidate =  $("#pet-form .is-invalid");
+    if(checkValidate.length==0){
+        savePet( petObject )
+        printAllPets( getAllPets() )
+    }else{
+        console.log("No procesado por datos inválidos en form")
+    }
+    }
+    )
 
 const displaySelected = (someId) => {
     let mascota = getPetById(someId)
@@ -149,7 +150,7 @@ const printAllPets = petsData => {
             </div>
             </div>
         `
-       specie!==undefined?fillSelectSpecies(specie):console.log('especie rechazada',specie);
+    //    specie!==undefined?fillSelectSpecies(specie):console.log('especie rechazada',specie);
         $(".pets-wrapper").append(petHtml) 
     }
 

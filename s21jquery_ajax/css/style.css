@@ -6,8 +6,12 @@
   background-color: #d5c8df;
 }
 
-.navbar #nav-logo {
-  height: 80px;
+.navbar img {
+  height: 55px;
+}
+
+.navbar li a {
+  font-family: 'Patrick Hand', cursive;
 }
 
 #form-header {
@@ -46,13 +50,24 @@
   height: 200px;
 }
 
-h5 {
+h6 {
   color: #838b95;
   font-family: 'Patrick Hand', cursive;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 h1 {
   color: #d5c8df;
+}
+
+.filter-form {
+  background-color: #dfbed0;
+}
+
+.carousel-inner img {
+  height: 90vh;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 /*# sourceMappingURL=style.css.map */

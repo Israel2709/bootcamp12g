@@ -96,8 +96,8 @@ $("#save-pet").click(() => {
         petObject = {...petObject, [property] : value }
     })
     console.log( petObject )
-   var checkValidate =  $("#pet-form .is-invalid");
-   if(checkValidate==0){
+    var checkValidate =  $("#pet-form .is-invalid");
+    if(checkValidate==0){
     savePet( petObject )
     printAllPets( getAllPets() )
 }else{
@@ -108,7 +108,6 @@ $("#save-pet").click(() => {
 const displaySelected = (someId) => {
     let mascota = getPetById(someId)
     let { name, specie, age, picture } = mascota
-   
 
     $("#modal-detail").empty()   
     $(".modal-title").html(name)
@@ -117,15 +116,15 @@ const displaySelected = (someId) => {
     <div class="card pet-card">
     <img src="${picture}" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Nombre: ${name}</h5>
+        <h5 class="card-title">Nombre: ${name}</h5>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Especie: ${specie}</li>
-      <li class="list-group-item">Edad: ${age}</li>
+        <li class="list-group-item">Especie: ${specie}</li>
+        <li class="list-group-item">Edad: ${age}</li>
     </ul>
-  </div>`
-  console.log(mascotaHtml)
-  $("#modal-detail").append(mascotaHtml)
+    </div>`
+    console.log(mascotaHtml)
+    $("#modal-detail").append(mascotaHtml)
 
 }
 
@@ -139,17 +138,17 @@ const printAllPets = petsData => {
         <div class="card pet-card">
         <a href = "vista.html?mascota=${pet}" target = "_blank" > <img src=${picture} class="card-img-top" alt="..."> </a>
             <div class="card-body">
-                <h5 class="card-title"><img class="pr-1" style="width: 18px; height: 15px;" src="./img/paw.png" alt="paw">${name}</h5>
+                <h6 class="card-title"><img class="pr-1" style="width: 18px; height: 15px;" src="./img/paw.png" alt="paw">${name}</h6>
                 <p class="card-text">Especie: ${specie}</p>
                 <p class="card-text">Edad: ${age}</p>
-                <button type="button" class="btn btn-primary btnDetalle" data-pet-key=${pet} data-toggle="modal" data-target="#exampleModal ">Detalle</button>
-                <button type="button" class="btn btn-danger btn-delete" data-pet-key=${pet}>Borrar</button>
-                ${!adopted ? `<a href="adoptForm.html?adoptKey=${pet}" class="btn btn-success adopt" data-pet-key=${pet}>Adoptame</a>`:''}
+                <button type="button" class="btn  btnDetalle" data-pet-key=${pet} data-toggle="modal" data-target="#exampleModal ">Detalle</button>
+                <button type="button" class="btn  btn-delete" data-pet-key=${pet}>Borrar</button>
+                ${!adopted ? `<a href="adoptForm.html?adoptKey=${pet}" class="btn  adopt" data-pet-key=${pet}>Adoptame</a>`:''}
             </div>
             </div>
             </div>
         `
-       specie!==undefined?fillSelectSpecies(specie):console.log('especie rechazada',specie);
+    //specie!==undefined?fillSelectSpecies(specie):console.log('especie rechazada',specie);
         $(".pets-wrapper").append(petHtml) 
     }
 
@@ -203,7 +202,7 @@ $("#btn-confirm").click( () => {
 $("#specie-filter").change(function() {
     let filterOption = $("#specie-filter").val();
     petsCollection = getAllPets()
-     console.log( petsCollection )
+        console.log( petsCollection )
     console.log( filterOption )
 
     let filterResult = Object.keys(petsCollection).reduce( ( accum, current ) => {
@@ -217,7 +216,7 @@ $("#specie-filter").change(function() {
 const capitalize = (s) => {
     if (typeof s !== 'string') return ''
     return s.charAt(0).toUpperCase() + s.slice(1)
-  }
+    }
 
 
  function fillSelectSpecies(specie){   

@@ -4,4 +4,51 @@
      object-fit: cover;
   height: 200px;
 }
+
+.body-detail {
+  margin-top: 22em;
+}
+
+.btn-detail {
+  color: black;
+  font-weight: bold;
+  background-color: #d5c8df;
+  border: none;
+  margin-top: 1em;
+  border-style: outset;
+}
+
+.h1-element {
+  background-color: #fcd8d4;
+  text-align: center;
+}
+
+.p-detail {
+  text-align: start;
+  background-color: peachpuff;
+}
+
+.card-element {
+  background-color: peachpuff;
+}
+
+.li-element {
+  background-color: peachpuff;
+  border: none;
+}
+
+.modal-detalle {
+  background-color: #e1e5ea;
+}
+
+.img-detail {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 1000px;
+}
+
+.body-background {
+  background-color: #faf3f3;
+}
 /*# sourceMappingURL=style.css.map */

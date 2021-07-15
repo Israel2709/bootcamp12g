@@ -6,6 +6,11 @@
 */
 
 const BASE_URL = 'https://blog-12g-default-rtdb.firebaseio.com/israel'
+let arraySpecies = []; 
+
+$(document).ready(function() {
+    $('.select2').select2();
+});
 
 const getAllPets = () => {
     let result
@@ -77,17 +82,27 @@ const getPetById = petId => {
     return result
 }
 
+
+
 $("#save-pet").click(() => {
     let petObject = {adopted:false}
     $("#pet-form input").each( function(){
         let property = $(this).attr("name")
         let value = $(this).val()
+        if(value === "" || value === null){
+            $(this).addClass("is-invalid");
+        }
         console.log(property, value )
         petObject = {...petObject, [property] : value }
     })
     console.log( petObject )
+   var checkValidate =  $("#pet-form .is-invalid");
+   if(checkValidate==0){
     savePet( petObject )
     printAllPets( getAllPets() )
+}else{
+    console.log("No procesado por datos inválidos en form")
+}
 })
 
 const displaySelected = (someId) => {
@@ -127,13 +142,14 @@ const printAllPets = petsData => {
                 <h5 class="card-title"><img class="pr-1" style="width: 18px; height: 15px;" src="./img/paw.png" alt="paw">${name}</h5>
                 <p class="card-text">Especie: ${specie}</p>
                 <p class="card-text">Edad: ${age}</p>
-                <button type="button" class="btn  btnDetalle" data-pet-key=${pet} data-toggle="modal" data-target="#exampleModal ">Detalle</button>
-                <button type="button" class="btn btn-delete" data-pet-key=${pet}>Borrar</button>
-                ${!adopted ? '<a href="adoptForm.html?adoptKey=${pet}" class="btn  adopt" data-pet-key=${pet}>Adoptame</a>':''}
+                <button type="button" class="btn btn-primary btnDetalle" data-pet-key=${pet} data-toggle="modal" data-target="#exampleModal ">Detalle</button>
+                <button type="button" class="btn btn-danger btn-delete" data-pet-key=${pet}>Borrar</button>
+                ${!adopted ? `<a href="adoptForm.html?adoptKey=${pet}" class="btn btn-success adopt" data-pet-key=${pet}>Adoptame</a>`:''}
             </div>
             </div>
             </div>
         `
+       specie!==undefined?fillSelectSpecies(specie):console.log('especie rechazada',specie);
         $(".pets-wrapper").append(petHtml) 
     }
 
@@ -155,9 +171,6 @@ const printAllPets = petsData => {
 
 
 }
-
-
-
 
 const removePet = petId => {
     let result
@@ -187,10 +200,10 @@ $("#btn-confirm").click( () => {
     $("#modalCenter").modal('hide')
 })
 
-$(".filter-radio-set input[type='radio']").click( event => {
+$("#specie-filter").change(function() {
+    let filterOption = $("#specie-filter").val();
     petsCollection = getAllPets()
-    let filterOption = $(event.target).val()
-    console.log( petsCollection )
+     console.log( petsCollection )
     console.log( filterOption )
 
     let filterResult = Object.keys(petsCollection).reduce( ( accum, current ) => {
@@ -201,7 +214,33 @@ $(".filter-radio-set input[type='radio']").click( event => {
     printAllPets(filterResult)
 })
 
-//Imprimimos todas las mascotas desde el principio
+const capitalize = (s) => {
+    if (typeof s !== 'string') return ''
+    return s.charAt(0).toUpperCase() + s.slice(1)
+  }
+
+
+ function fillSelectSpecies(specie){   
+   specieCap=capitalize(specie.toLowerCase());
+   console.log('especie capitalizada',specieCap)
+   console.log('lenght', arraySpecies.length)
+   if(arraySpecies.length>0){
+       if(!arraySpecies.includes(specieCap)){
+           arraySpecies.push(specieCap)
+           console.log('specieInconming', specieCap);
+            $("#specie-filter").append(`<option value="${specieCap}">${specieCap}</option>`) 
+            $("#specie-select").append(`<option value="${specieCap}">${specieCap}</option>`) 
+        }}else{ 
+            $("#specie-select").append(`<option value="${specieCap}">${specieCap}</option>`) 
+            $("#specie-filter").append(`<option value="${specieCap}">${specieCap}</option>`) 
+
+        arraySpecies.push(specieCap);
+
+         console.log('first data array generated', arraySpecies);
+       }
+   }
+    
+
 let petsCollection = getAllPets()
 printAllPets( petsCollection )
 

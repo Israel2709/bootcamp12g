@@ -144,7 +144,7 @@ const printAllPets = petsData => {
                 <p class="card-text">Edad: ${age}</p>
                 <button type="button" class="btn  btnDetalle" data-pet-key=${pet} data-toggle="modal" data-target="#exampleModal ">Detalle</button>
                 <button type="button" class="btn  btn-delete" data-pet-key=${pet}>Borrar</button>
-                ${!adopted ? `<a href="adoptForm.html?adoptKey=${pet}" class="btn  adopt" data-pet-key=${pet}>Adoptame</a>`:''}
+                ${!adopted ? `<a href="adoptForm.html?adoptKey=${pet}" class="btn  adopt" data-pet-key=${pet}>Adóptame</a>`:''}
             </div>
             </div>
             </div>

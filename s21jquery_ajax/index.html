@@ -38,44 +38,55 @@
                 <form id="pet-form" action="" class="p-3 bg-dark text-white border rounded">
                     <div class="form-group">
                         <input name="name" type="text" class="form-control"
-                            placeholder="Ingresa el nombre de tu mascota" value="Ikki">
+                            placeholder="Ingresa el nombre de tu mascota" value="Ikki" required aria-describedby="validationServer1">
+                            <div class="invalid-feedback" id="validationServer1">
+                                Por favor, ingrese el nombre de la mascota.
+                              </div> 
                     </div>
                     <div class="form-group">
-                        <input name="specie" type="text" class="form-control"
-                            placeholder="De qué especie es tu mascota?" value="Ave">
+                        <select name="specie" class="form-control" id="specie" required aria-describedby="validationServer2">
+                            <option value="perro">Canino</option>
+                            <option value="gato">Felino</option>
+                            <option value="anfibio">Anfibio</option>
+                            <option value="Ave">Ave</option>
+                            <option value="pez">Pez</option>
+                        </select>
+                        <div class="invalid-feedback" id="validationServer2">
+                            Por favor,selecciona una especie válida.
+                          </div>  
+                        </div>
+                        <div class="form-group">
+                        <input name="age"  type="number" class="form-control" placeholder="Qué edad tiene tu mascota?"
+                            value="2 meses" required aria-describedby="validationServer3">
+                            <div class="invalid-feedback"  id="validationServer3">
+                                Por favor, ingrese la edad de la mascota.
+                              </div> 
                     </div>
                     <div class="form-group">
-                        <input name="age" type="text" class="form-control" placeholder="Qué edad tiene tu mascota?"
-                            value="2 meses">
-                    </div>
-                    <div class="form-group">
-                        <input name="picture" type="text" class="form-control"
+                        <input name="picture" required type="text" class="form-control"
                             placeholder="Cómo se ve tu mascota (muestranos una foto :D )?"
-                            value="https://tse1.mm.bing.net/th?id=OIP.rn3yMJz55q1rt0vR2vvWXQHaFR&pid=Api">
+                            value="https://tse1.mm.bing.net/th?id=OIP.rn3yMJz55q1rt0vR2vvWXQHaFR&pid=Api"  aria-describedby="validationServer4">
+                            <div class="invalid-feedback"  id="validationServer4">
+                                Por favor, ingrese la url de la imagen.
+                              </div> 
                     </div>
-                    <button type="button" id="save-pet" class="btn btn-success">ok</button>
+                    <button type="submit" id="save-pet" class="btn btn-success">ok</button>
                 </form>
             </div>
             <div class="col-12 col-md-8">
                 <div class="w-100">
-                    <div class="filter-radio-set">
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="perro" name="customRadioInline" class="custom-control-input"
-                                value="perro">
-                            <label class="custom-control-label" for="perro">Perro</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="gato" name="customRadioInline" class="custom-control-input"
-                                value="gato">
-                            <label class="custom-control-label" for="gato">Gato</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="ave" name="customRadioInline" class="custom-control-input"
-                                value="ave">
-                            <label class="custom-control-label" for="ave">Ave</label>
-                        </div>
-                    </div>
-
+                    <form class="p-3 bg-dark text-white border rounded">
+                        <div class="form-group">
+                            <label for="specie">Filtrar por especie</label>
+                            <select name="specie" class="form-control" id="specie-filter"  aria-describedby="validationServer5">
+                                <option value="canino">Canino</option>
+                                <option value="felino">Felino</option>
+                                <option value="anfibio">Anfibio</option>
+                                <option value="ave">Ave</option>
+                                <option value="pez">Pez</option>
+                            </select>
+                        </div> 
+                    </form>
                 </div>
                 <div class="row pets-wrapper">
                 </div>

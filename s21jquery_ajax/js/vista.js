@@ -44,6 +44,7 @@ const printSelected = (someId) => {
   </div>`
   $(".pets-wrapper").append(mascotaHtml)
 }
+
 printSelected(param)
 $('#cerrar').click(  ()=>{
     window.close()

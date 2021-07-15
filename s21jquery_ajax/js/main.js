@@ -107,27 +107,23 @@ $("#save-pet").click(() => {
     )
 
 const displaySelected = (someId) => {
-    let mascota = getPetById(someId)
-    let { name, specie, age, picture } = mascota
-   
-
-    $("#modal-detail").empty()   
-    $(".modal-title").html(name)
-    
-    let mascotaHtml = `
-    <div class="card pet-card">
-    <img src="${picture}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Nombre: ${name}</h5>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Especie: ${specie}</li>
-      <li class="list-group-item">Edad: ${age}</li>
-    </ul>
-  </div>`
-  console.log(mascotaHtml)
-  $("#modal-detail").append(mascotaHtml)
-
+        let mascota = getPetById(someId)
+        let { name, specie, age, picture } = mascota
+        $("#modal-detail").empty()   
+        $(".modal-title").html(name)
+        let mascotaHtml = `
+        <div class="card pet-card">
+        <img src="${picture}" class="card-img-top" alt="...">
+        <div class="card-body card-element">
+            <h5 class="card-title">Nombre: ${name}</h5>
+        </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item li-element">Especie: ${specie}</li>
+                <li class="list-group-item li-element">Edad: ${age}</li>
+            </ul>
+        </div>`
+      console.log(mascotaHtml)
+      $("#modal-detail").append(mascotaHtml)
 }
 
 

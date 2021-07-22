@@ -1,0 +1,29 @@
+.help-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 20px;
+  border: 1px solid white;
+}
+
+.tag-popup {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  display: none;
+}
+
+.help-icon:hover ~ .tag-popup {
+  display: block;
+}
+/*# sourceMappingURL=style.css.map */

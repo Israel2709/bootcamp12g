@@ -262,3 +262,13 @@ $('.scroll-down').click((event) =>{
         }
     })
 })
+
+const getDevToArticles = () => {
+    $.ajax({
+        method:"GET",
+        url:"https://dev.to/api/articles",
+        success: response => {
+            console.log( response )
+        }
+    })
+}

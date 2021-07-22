@@ -121,12 +121,25 @@ memoriesRef.on('value', snapshot => {
     for( memory in memoriesCollection ){
         let { title, picture } = memoriesCollection[ memory ]
         $(".memories-wrapper").append(`
+        <div class="col-6">
+     
         <div class="card" >
             <img src=${picture} class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${title}</h5>
             </div>
         </div>
+        </div>
         `)
     }
 })
+
+const getDevToArticles = () => {
+    $.ajax({
+        method:"GET",
+        url:"https://dev.to/api/articles",
+        success: response => {
+            console.log( response )
+        }
+    })
+}
